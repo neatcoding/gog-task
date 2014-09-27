@@ -1,12 +1,26 @@
-<!doctype html>
-<html ng-app="gogApp">
+<!DOCTYPE html>
+<!--[if lte IE 8]><html ng-app="gogApp" lang="pl" class="ie8 no-js"><![endif]-->
+<!--[if gt IE 8]><!--><html ng-app="gogApp" lang="pl" class="no-js"><!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="Expires" content="-1">
     <title>GOG Task</title>
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="assets/css/screen.css">
+
+    <script src="js/modernizr.min.js"></script>
+</head>
+<body>
+
+    <header id="main-header"></header>
+
+    <!-- <menu ng-include="'app/partials/language.html'"></menu> -->
+    {{ 3 }}
+
+    <div class="view-container">
+        <div ng-view></div>
+    </div>
+
 
     <!-- <script src="vendors/jquery.min.js"></script> -->
     <script src="vendors/angular.min.js"></script>
@@ -20,15 +34,5 @@
     <script src="app/controllers.js"></script>
     <script src="app/filters.js"></script>
     <script src="app/services.js"></script>
-</head>
-<body>
-
-    <!-- <menu ng-include="'app/partials/language.html'"></menu> -->
-    {{ 3 }}
-
-    <div class="view-container">
-        <div ng-view></div>
-    </div>
-
 </body>
 </html>

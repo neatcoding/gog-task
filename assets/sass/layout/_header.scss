@@ -1,4 +1,8 @@
-header.page-header {
+// fake header with fake background fill, don't bother.
+
+#main-header {
+    background: url(../img/header-stub.png) repeat-x center top;
     width: 100%;
-    margin: auto;
+    height: 76px;
+    min-width: $siteWidth;
 }

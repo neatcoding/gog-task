@@ -1,52 +1,12 @@
-/* Use http://www.fontsquirrel.com/ */
+/* font with numbers only generated on fontsquirrel */
 
-// @font-face {
-//     font-family: 'toyota_display';
-//     src: url('http://static.sites.toyota.pl/fonts/toyotadisplay_bd-webfont.eot');
-//     src: url('http://static.sites.toyota.pl/fonts/toyotadisplay_bd-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('http://static.sites.toyota.pl/fonts/toyotadisplay_bd-webfont.woff') format('woff'),
-//          url('http://static.sites.toyota.pl/fonts/toyotadisplay_bd-webfont.ttf') format('truetype');
-//     font-weight: bold;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'toyota_display';
-//     src: url('http://static.sites.toyota.pl/fonts/toyotadisplay_rg-webfont.eot');
-//     src: url('http://static.sites.toyota.pl/fonts/toyotadisplay_rg-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('http://static.sites.toyota.pl/fonts/toyotadisplay_rg-webfont.woff') format('woff'),
-//          url('http://static.sites.toyota.pl/fonts/toyotadisplay_rg-webfont.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     font-family: 'toyota_text';
-//     src: url('http://static.sites.toyota.pl/fonts/toyotatext_bd-webfont.eot');
-//     src: url('http://static.sites.toyota.pl/fonts/toyotatext_bd-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('http://static.sites.toyota.pl/fonts/toyotatext_bd-webfont.woff') format('woff'),
-//          url('http://static.sites.toyota.pl/fonts/toyotatext_bd-webfont.ttf') format('truetype');
-//     font-weight: bold;
-//     font-style: normal;
-// }
-
-// @font-face {
-//     // font-family: 'toyota_textitalic';
-//     font-family: 'toyota_text';
-//     src: url('http://static.sites.toyota.pl/fonts/toyotatext_it-webfont.eot');
-//     src: url('http://static.sites.toyota.pl/fonts/toyotatext_it-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('http://static.sites.toyota.pl/fonts/toyotatext_it-webfont.woff') format('woff'),
-//          url('http://static.sites.toyota.pl/fonts/toyotatext_it-webfont.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: italic;
-// }
-
-// @font-face {
-//     font-family: 'toyota_text';
-//     src: url('http://static.sites.toyota.pl/fonts/toyotatext_rg-webfont.eot');
-//     src: url('http://static.sites.toyota.pl/fonts/toyotatext_rg-webfont.eot?#iefix') format('embedded-opentype'),
-//          url('http://static.sites.toyota.pl/fonts/toyotatext_rg-webfont.woff') format('woff'),
-//          url('http://static.sites.toyota.pl/fonts/toyotatext_rg-webfont.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
+@font-face {
+    font-family: 'ds-digitalbold';
+    src: url('ds-digib-webfont.eot');
+    src: url('ds-digib-webfont.eot?#iefix') format('embedded-opentype'),
+         url('ds-digib-webfont.woff2') format('woff2'),
+         url('ds-digib-webfont.woff') format('woff'),
+         url('ds-digib-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
