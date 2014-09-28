@@ -12,24 +12,35 @@ h1 {
     text-align: center;
     text-shadow: 0px 1px 0px rgba(255,255,255,0.4);
     padding-top: 0.2em;
-
 }
 
-// strong means a bit stronger
-strong { font-weight: $baseFontWeight + 100; }
+// strong means semi-bold for designer
+strong { font-weight: 600; }
 
-.centered {
-    text-align: center; // everything is centered :)
+// light font style
+.light {
+    font-weight: 300;
+    // strong means regular in light environment
+    strong { font-weight: 400; }
 }
 
-.dark-grey {
-    color: $dark-grey;
-}
+// bold font style
+.bold { font-weight: 700; }
 
-// reset hr styles
+.centered { text-align: center; }
+
+.dark-grey { color: $dark-grey; }
+
+// reset separator style
 hr {
     border: 0;
     height: 1px;
     margin: 0.6em;
     background: #CDCDCD;
+}
+
+.un-dotted {
+    border-bottom: 1px dotted $grey;
+    display: inline-block;
+    line-height: 1em;
 }
