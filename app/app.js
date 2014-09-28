@@ -17,9 +17,9 @@ gogApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'app/views/home.html',
             controller: 'homePageCtrl',
             resolve: {
-                'GamesData': function(Games) {
+                games: ['Games', function(Games) {
                     return Games.promise;
-                }
+                }]
             }
         })
         .otherwise({
