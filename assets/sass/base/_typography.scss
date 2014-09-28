@@ -25,3 +25,11 @@ strong { font-weight: $baseFontWeight + 100; }
 .dark-grey {
     color: $dark-grey;
 }
+
+// reset hr styles
+hr {
+    border: 0;
+    height: 1px;
+    margin: 0.6em;
+    background: #CDCDCD;
+}
