@@ -1,13 +1,16 @@
 module.exports = function(grunt) {
 
   var uglify_files = [
+    'vendors/TweenLite.min.js',
+    'vendors/Draggable.min.js',
+    'vendors/CSSPlugin.min.js',
     'vendors/angular.min.js',
-    'vendors/angular-animate.min.js',
     'vendors/angular-route.min.js',
     'vendors/angular-resource.min.js',
     'app/app.js',
     'app/animations.js',
     'app/controllers.js',
+    'app/directives.js',
     'app/filters.js',
     'app/services.js'
   ];
