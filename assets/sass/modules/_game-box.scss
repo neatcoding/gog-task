@@ -24,12 +24,6 @@ $gameBoxHorizontalPadding: 30px; // needed for inside space calculations
         width: $singleGameWidth;
     }
     &:first-child { margin-left: 0; }
-
-    p {
-        font-size: 12px;
-        font-weight: 400;
-        strong { font-weight: 600; }
-    }
 }
 
 // image box

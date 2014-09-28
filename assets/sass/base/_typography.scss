@@ -14,12 +14,15 @@ h1 {
     padding-top: 0.2em;
 }
 
+p {
+    font-size: 12px;
+}
+
 // strong means semi-bold for designer
 strong { font-weight: 600; }
 
 // light font style
-.font-light {
-    font-weight: 300;
+.font-light { font-weight: 300;
     // strong means regular in light environment
     strong { font-weight: 400; }
 }
@@ -31,7 +34,7 @@ strong { font-weight: 600; }
 
 .dark-grey { color: $dark-grey; }
 
-// reset separator style
+// reset separator styles
 hr {
     border: 0;
     height: 1px;
@@ -39,6 +42,7 @@ hr {
     background: #CDCDCD;
 }
 
+// special dotted underline style
 .un-dotted {
     border-bottom: 1px dotted $grey;
     display: inline-block;
