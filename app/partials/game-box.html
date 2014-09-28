@@ -4,6 +4,17 @@
         <img class="active-image" ng-src="assets/img/game-images/{{ game.slug }}.png" alt="">
     </div>
 
-    {{ game.name }} {{ game.priceDescription }}
-    {{ game.description }}
+    <hr>
+    <p>
+        {{ game.name }} ({{ game.priceDescription }})<br>
+        <strong>{{ game.description }}</strong>
+    </p>
+    <hr>
+
+    <p>
+        <i class="icon gog-icons-green-tick"></i>
+        {{ game.supportDescription }} <strong ng-if="game.price > 1">(from {{ game.price | currency }})</strong>
+    </p>
+
+
 </figure>
