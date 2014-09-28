@@ -1,7 +1,7 @@
-<figure ng-repeat="game in games" class="game game--one-of-{{games.length}}">
+<figure ng-repeat="game in games" class="game game--one-of-{{games.length}}" ng-class="{'game--available': game.available, 'game--not-available': !game.available}">
     <div class="game-image">
-        <img ng-class="{'visible': !game.available}" ng-src="assets/img/game-images/{{ game.slug }}-inactive.png" alt="">
-        <img ng-class="{'visible': game.available}" ng-src="assets/img/game-images/{{ game.slug }}.png" alt="">
+        <img class="inactive-image" ng-src="assets/img/game-images/{{ game.slug }}-inactive.png" alt="">
+        <img class="active-image" ng-src="assets/img/game-images/{{ game.slug }}.png" alt="">
     </div>
 
     {{ game.name }} {{ game.priceDescription }}

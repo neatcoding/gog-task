@@ -1,3 +1,5 @@
+$gameBoxPadding: 30px; // needed for inside space calculations
+
 .game-box {
     background: url(../img/game-box/game-box-bg.jpg);
     width: $siteWidth;
@@ -5,26 +7,60 @@
     margin: 40px 0;
     @include border-radius(5px);
     @include box-sizing(border-box);
-    padding: 30px;
+    padding: $gameBoxPadding;
 
     &.game-box--containing-3 {}
 }
 
+// signle game
 .game {
-    // can change this if number of games changes
+    position: relative;
+    float: left;
+    // can change this if number of games changes, maybe with loop and array
     &.game--one-of-3 {
-        width: 281px;
+        $singleGameWidth: 281px;
+        $spaceBetweenGames: ($siteWidth - $gameBoxPadding*2 - $singleGameWidth*3)/2;
+        margin-left: floor($spaceBetweenGames);
+        width: $singleGameWidth;
     }
+    &:first-child { margin-left: 0; }
 }
 
+// image box
 .game-image {
     width: 100%;
     height: 126px;
     position: relative;
     img {
         @include absolute-centered;
-        @include opacity(0);
         @include transition(.4s);
-        &.visible { @include opacity(1); }
+        @include opacity(0);
+    }
+}
+
+// available state
+.game--available {
+    .active-image {
+        @include opacity(1);
+    }
+    &:before {
+        @extend .gog-icons-plus;
+        display: block;
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 40px;
+    }
+    &:first-child {
+        &:before {
+            display: none;
+        }
+    }
+}
+
+// not available state
+.game--not-available {
+    .inactive-image {
+        @include opacity(1);
     }
 }
