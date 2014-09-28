@@ -45,6 +45,12 @@
     background: #7ca900;
     @include background-image(linear-gradient(#adc900, #7ca900));
 
-    // debug
-    width: 200px;
+    width: 0%;
+}
+
+.slider-track-handle {
+    position: absolute;
+    top: -7px;
+    left: 0;
+    margin-left: -8px;
 }

@@ -2,8 +2,8 @@
 var gogApp = angular.module('gogApp', [
         'ngRoute',
         'gogControllers',
-        'ngResource',
-        'ngAnimate'
+        'gogDirectives',
+        'ngResource'
     ]).run(function () {
 });
 
