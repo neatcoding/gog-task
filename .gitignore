@@ -2,3 +2,6 @@
 *.css.map
 *.sublime-*
 .sass-cache
+
+node_modules
+*.all.min.js
