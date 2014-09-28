@@ -1,15 +1,18 @@
-$gameBoxPadding: 30px; // needed for inside space calculations
+$gameBoxHorizontalPadding: 30px; // needed for inside space calculations
 
 .game-box {
     background: url(../img/game-box/game-box-bg.jpg);
     width: $siteWidth;
     height: 444px;
-    margin: 40px 0;
+    margin: 37px 0;
     @include border-radius(5px);
     @include box-sizing(border-box);
-    padding: $gameBoxPadding;
+    padding: 25px $gameBoxHorizontalPadding;
 
     &.game-box--containing-3 {}
+
+    hr {
+    }
 }
 
 // signle game
@@ -19,11 +22,17 @@ $gameBoxPadding: 30px; // needed for inside space calculations
     // can change this if number of games changes, maybe with loop and array
     &.game--one-of-3 {
         $singleGameWidth: 281px;
-        $spaceBetweenGames: ($siteWidth - $gameBoxPadding*2 - $singleGameWidth*3)/2;
+        $spaceBetweenGames: ($siteWidth - $gameBoxHorizontalPadding*2 - $singleGameWidth*3)/2;
         margin-left: floor($spaceBetweenGames);
         width: $singleGameWidth;
     }
     &:first-child { margin-left: 0; }
+
+    p {
+        font-size: 12px;
+        font-weight: 400;
+        strong { font-weight: 600; }
+    }
 }
 
 // image box
