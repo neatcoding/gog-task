@@ -1,12 +1,17 @@
 var gogControllers = angular.module('gogControllers', []);
 
-
-
-
 gogControllers.controller('homePageCtrl', ['$scope', 'Games', function ($scope, Games) {
     // get data from Games service
     $scope.games = Games.getGames();
     $scope.gamesSold = Games.getGamesSold();
+
+    // introduce game availability state
+    $scope.games.forEach(function(game){ game.available = true; });
+
+    setTimeout(function() {
+        $scope.games.forEach(function(game){ game.available = false; });
+        $scope.$apply();
+    }, 2000);
 }]);
 
 

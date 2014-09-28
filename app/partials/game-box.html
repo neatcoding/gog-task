@@ -1,0 +1,9 @@
+<figure ng-repeat="game in games" class="game game--one-of-{{games.length}}">
+    <div class="game-image">
+        <img ng-class="{'visible': !game.available}" ng-src="assets/img/game-images/{{ game.slug }}-inactive.png" alt="">
+        <img ng-class="{'visible': game.available}" ng-src="assets/img/game-images/{{ game.slug }}.png" alt="">
+    </div>
+
+    {{ game.name }} {{ game.priceDescription }}
+    {{ game.description }}
+</figure>

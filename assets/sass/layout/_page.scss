@@ -1,6 +1,6 @@
 body {
     background: url(../img/bg-pattern.png) repeat center top;
-    // background top gradient
+    // background top gradient exactly as in .psd
     &:before {
         position: absolute;
         content: "";
@@ -8,7 +8,12 @@ body {
         @include background-image(linear-gradient(rgba(black, 0.5), rgba(black, 0)));
         height: 300px;
         width: 100%;
-        left: 0; top: 0;
+        left: 0; top: -60px;
         z-index: -1;
     }
+}
+
+.wrapper {
+    width: $siteWidth;
+    margin: 0 auto;
 }

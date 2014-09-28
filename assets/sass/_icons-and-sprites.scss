@@ -1,0 +1,7 @@
+// icons system
+
+.icon { vertical-align: middle; display: inline-block; }
+
+@import "compass/utilities/sprites";
+@import "gog-icons/*.png";
+@include all-gog-icons-sprites(true);

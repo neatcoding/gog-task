@@ -1,0 +1,9 @@
+.rounded-delicate-glass {
+    background: rgba(0,0,0,0.03);
+    border: 1px solid #999;
+    @include border-radius(5px);
+}
+
+.outer-bevel {
+    @include box-shadow(0px 1px 3px rgba(black, 0.3), 0px 1px 0px rgba(white, 0.5) inset);
+}

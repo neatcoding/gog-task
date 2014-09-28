@@ -26,18 +26,26 @@
 
 
 // --------------------------------------------------
+// icons and sprites
+// --------------------------------------------------
+
+@import "icons-and-sprites";
+
+
+// --------------------------------------------------
 // helpers and tools used across the project
 // --------------------------------------------------
 
 @import "helpers/columns";
-// @import "helpers/mixins";
+@import "helpers/mixins";
 
 
 // --------------------------------------------------
-// base fonts
+// base fonts and typography
 // --------------------------------------------------
 
 @import "base/fonts";
+@import "base/typography";
 
 
 // --------------------------------------------------
@@ -54,4 +62,6 @@
 // small modules and classes
 // --------------------------------------------------
 
-@import "modules/wrapper";
+@import "modules/ico-horizontal-list";
+@import "modules/game-box";
+@import "modules/small-modules";

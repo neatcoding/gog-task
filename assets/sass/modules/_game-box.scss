@@ -1,0 +1,30 @@
+.game-box {
+    background: url(../img/game-box/game-box-bg.jpg);
+    width: $siteWidth;
+    height: 444px;
+    margin: 40px 0;
+    @include border-radius(5px);
+    @include box-sizing(border-box);
+    padding: 30px;
+
+    &.game-box--containing-3 {}
+}
+
+.game {
+    // can change this if number of games changes
+    &.game--one-of-3 {
+        width: 281px;
+    }
+}
+
+.game-image {
+    width: 100%;
+    height: 126px;
+    position: relative;
+    img {
+        @include absolute-centered;
+        @include opacity(0);
+        @include transition(.4s);
+        &.visible { @include opacity(1); }
+    }
+}

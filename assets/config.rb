@@ -11,11 +11,14 @@ javascripts_dir = "js"
 output_style = :compressed
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
-# relative_assets = true
+relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
 
+# Source Maps change the Sass debugging game.
+# Prerelease version of Sass 3.3 is needed.
+# Run gem install sass --pre
 # To enable source mapping. Uncomment:
 sass_options = {:sourcemap => true}
 
