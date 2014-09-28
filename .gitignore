@@ -5,3 +5,5 @@
 
 node_modules
 *.all.min.js
+
+Guardfile

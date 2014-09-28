@@ -1,0 +1,11 @@
+// base font settings applied
+body {
+    font-weight: $baseFontWeight;
+    font-size: $baseFontSize;
+    line-height: $baseLineHeight;
+    font-family: $baseFontFamily;
+}
+
+h1 {
+    font-size: 32px;
+}
