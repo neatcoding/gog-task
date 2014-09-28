@@ -1,11 +1,12 @@
-<p>{{ 'HEADLINE_HOME' }}</p>
 
-<ul ng-repeat="book in books | orderBy:'title'">
-    <li><i>{{ book.author }}</i></li>
-    <li><strong><a href="{{ book.url }}">{{ book.title }}</p></a></strong></li>
-    <li>
-        <ul ng-repeat="(key, value) in book.details">
-            <li>{{ key }} - {{ value }}</li>
-        </ul>
-    </li>
+<ul ng-repeat="game in games">
+    {{game.name}}
 </ul>
+
+<!-- todo sprites http://compass-style.org/help/tutorials/spriting/ -->
+
+
+<!-- angular progress http://mathewbyrne.github.io/angular-progress-arc/ -->
+<!-- or https://github.com/crisbeto/angular-svg-round-progressbar -->
+
+<!-- trailer https://www.youtube.com/watch?v=Mea7Pa3rhJU -->
