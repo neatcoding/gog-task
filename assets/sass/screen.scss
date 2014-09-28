@@ -10,7 +10,7 @@
 
 @import "compass/reset";
 @import "compass/css3";
-@import "compass/utilities/sprite";
+@import "compass/utilities/sprites";
 
 
 // --------------------------------------------------
@@ -30,8 +30,7 @@
 // --------------------------------------------------
 
 @import "helpers/columns";
-@import "helpers/functions";
-@import "helpers/mixins";
+// @import "helpers/mixins";
 
 
 // --------------------------------------------------
