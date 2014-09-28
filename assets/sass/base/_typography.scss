@@ -18,14 +18,14 @@ h1 {
 strong { font-weight: 600; }
 
 // light font style
-.light {
+.font-light {
     font-weight: 300;
     // strong means regular in light environment
     strong { font-weight: 400; }
 }
 
 // bold font style
-.bold { font-weight: 700; }
+.font-bold { font-weight: 700; }
 
 .centered { text-align: center; }
 
