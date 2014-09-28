@@ -7,11 +7,6 @@ gogControllers.controller('homePageCtrl', ['$scope', 'Games', function ($scope, 
 
     // introduce game availability state
     $scope.games.forEach(function(game){ game.available = true; });
-
-    setTimeout(function() {
-        $scope.games.forEach(function(game){ game.available = false; });
-        $scope.$apply();
-    }, 2000);
 }]);
 
 
