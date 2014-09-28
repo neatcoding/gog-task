@@ -22,7 +22,7 @@ gogControllers.controller('homePageCtrl', ['$scope', 'Books', function ($scope, 
 // }])
 // .directive('myDraggable', ['$document', function($document) {
 //   return function(scope, element, attr) {
-//     var startX = 0, startY = 0, x = 0, y = 0;
+//     var startX = scope.price, startY = 0, x = 0, y = 0;
 
 //     console.log('attr', attr.myDraggable);
 
@@ -36,7 +36,7 @@ gogControllers.controller('homePageCtrl', ['$scope', 'Books', function ($scope, 
 //     element.on('mousedown', function(event) {
 //       // Prevent default dragging of selected content
 //       event.preventDefault();
-//       startX = event.pageX - x;
+//       startX = event.pageX - scope.price;
 //       startY = event.pageY - y;
 //       $document.on('mousemove', mousemove);
 //       $document.on('mouseup', mouseup);
@@ -55,7 +55,7 @@ gogControllers.controller('homePageCtrl', ['$scope', 'Books', function ($scope, 
 //     }
 
 //     scope.$watch('price', function(){
-//       console.log('element css');
+//       console.log('scope.price change', scope.price)
 //       element.css({
 //         left: scope.price + 'px'
 //       });
