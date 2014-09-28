@@ -1,13 +1,11 @@
-<div>
-    <p>{{ 'HEADLINE_HOME' }}</p>
+<p>{{ 'HEADLINE_HOME' }}</p>
 
-    <ul ng-repeat="book in books | orderBy:'title'">
-        <li><i>{{ book.author }}</i></li>
-        <li><strong><a href="{{ book.url }}">{{ book.title }}</p></a></strong></li>
-        <li>
-            <ul ng-repeat="(key, value) in book.details">
-                <li>{{ key }} - {{ value }}</li>
-            </ul>
-        </li>
-    </ul>
-</div>
+<ul ng-repeat="book in books | orderBy:'title'">
+    <li><i>{{ book.author }}</i></li>
+    <li><strong><a href="{{ book.url }}">{{ book.title }}</p></a></strong></li>
+    <li>
+        <ul ng-repeat="(key, value) in book.details">
+            <li>{{ key }} - {{ value }}</li>
+        </ul>
+    </li>
+</ul>
