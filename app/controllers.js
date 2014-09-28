@@ -4,9 +4,10 @@ gogControllers.controller('homePageCtrl', ['$scope', 'Games', function ($scope, 
     // get data from Games service
     $scope.games = Games.getGames();
     $scope.gamesSold = Games.getGamesSold();
-
     // introduce game availability state property
     $scope.games.forEach(function(game){ game.available = true; });
+
+    $scope.maximumSliderValue = 49.99;
 }]);
 
 

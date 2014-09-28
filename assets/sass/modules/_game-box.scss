@@ -8,6 +8,7 @@ $gameBoxHorizontalPadding: 30px; // needed for inside space calculations
     @include border-radius(5px);
     @include box-sizing(border-box);
     padding: 25px $gameBoxHorizontalPadding;
+    position: relative;
 
     &.game-box--containing-3 {}
 }
