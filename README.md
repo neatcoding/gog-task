@@ -16,6 +16,6 @@ It is ready to use coffeescript (compile before uglify).
 
 <h2>Styles</h2>
 
-I reduced grey colors, because you shouldn't use so many colors.
+I reduced grey colors, because you shouldn't use so many colors in a project. :)
 
 CSS mapping is enabled in config.rb, so You can see see .scss file and line easily in chrome (enable css source maps in devtools options).
