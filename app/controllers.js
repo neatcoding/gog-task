@@ -5,7 +5,7 @@ gogControllers.controller('homePageCtrl', ['$scope', 'Games', function ($scope, 
     $scope.games = Games.getGames();
     $scope.gamesSold = Games.getGamesSold();
 
-    // introduce game availability state
+    // introduce game availability state property
     $scope.games.forEach(function(game){ game.available = true; });
 }]);
 
