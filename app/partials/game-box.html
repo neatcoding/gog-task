@@ -10,8 +10,8 @@
             <strong>{{ game.description }}</strong>
         </p>
         <hr>
-        <p>
-            <i class="icon gog-icons-green-tick"></i>
+        <p ng-class="{'green': game.available}">
+            <i class="icon" ng-class="{'gog-icons-available': game.available, 'gog-icons-not-available': !game.available}"></i>
             {{ game.supportDescription }} <strong ng-if="game.price > 1">(from {{ game.price | currency }})</strong>
         </p>
     </figure>

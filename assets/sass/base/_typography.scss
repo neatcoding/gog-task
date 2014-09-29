@@ -14,7 +14,13 @@ h1 {
     padding-top: 0.2em;
 }
 
-p { font-size: 12px; }
+p {
+    font-size: 12px;
+    .icon {
+        margin: 2px 3px;
+        vertical-align: top;
+    }
+}
 .small-text { font-size: 10px; }
 
 // strong means semi-bold for designer
