@@ -1,60 +1,146 @@
-
-var gogDirectives = angular.module('gogDirectives', []);
-
 /*-----------------------------------------
-    Directive created to use GreenSock
+    Directive created to use Draggable
     and have customized slider just
     as I want it to be. :)
 -----------------------------------------*/
 
-gogDirectives.directive('gogPriceSlider', ['$document', function($document) {
-  return function(scope, element, attr) {
-    var startX = scope.price, startY = 0, x = 0, y = 0;
+gogApp.directive('gogPriceSlider', [function() {
+    return {
+        restrict: "E",
+        scope: {
+            /* synchronizing slider values with other scope */
+            sliderValue: "=",
+            sliderMin: '=',
+            sliderMax: '='
+        },
+        link: function(scope, slider, attr) {
+            /*-----------------------------------------
+                value declarations
+            -----------------------------------------*/
 
-    console.log('attr', attr.gogPriceSlider);
+            // get start value from attribute (could get it from scope of course)
+            var currentPercent = convertValueToPercent(scope.sliderValue);
 
-    element.css({
-     position: 'relative',
-     border: '1px solid red',
-     backgroundColor: 'lightgrey',
-     cursor: 'pointer'
-    });
+            // using jqLite and assuming only image is track handle,
+            // could use jQuery or id
+            var handle = slider.find('img');
+            var maximumX = slider.prop('clientWidth');
+            var isDragging = false;
 
-    element.on('mousedown', function(event) {
-      // Prevent default dragging of selected content
-      event.preventDefault();
-      startX = event.pageX - scope.price;
-      startY = event.pageY - y;
-      $document.on('mousemove', mousemove);
-      $document.on('mouseup', mouseup);
-    });
+            var draggable;
 
-    function mousemove(event) {
-      y = event.pageY - startY;
-      x = event.pageX - startX;
 
-      scope.price = x;
-      scope.$apply();
+            /*-----------------------------------------
+                value declarations
+            -----------------------------------------*/
 
-      element.css({
-        top: y + 'px'
-      });
-    }
+            /* init draggable element (bind drag) */
+            draggable = Draggable.create(handle, {
+                type: 'x', // only x-axis
+                bounds: {minX: 0, maxX: maximumX},
+                zIndexBoost: false, // because it is not needed
+                // know if it's currently dragging
+                onDragStart: function(){ isDragging = true; },
+                onDragEnd: function(){ isDragging = false; },
+                onDrag: function(e) {
+                    handleXChange(this.x);
+                }
+            });
 
-    scope.$watch('price', function(){
-      console.log('scope.price change', scope.price)
-      element.css({
-        left: scope.price + 'px'
-      });
-    });
+            /* bind mousedown */
+            slider.on('mousedown', function(e){
+                // don't react on handle image
+                if(e.target.nodeName.toLowerCase() === 'img') { return; }
 
-    function updatePosition() {
-      element.css({left: scope.price});
-    }
+                var clickXOffset = e.layerX;
 
-    function mouseup() {
-      $document.off('mousemove', mousemove);
-      $document.off('mouseup', mouseup);
-    }
-  };
+                // set handle position according to current percent
+                TweenLite.set(handle, {x: clickXOffset});
+                // update draggable instance knowledge
+                draggable[0].update();
+                // start dragging immediately
+                draggable[0].startDrag(e);
+                // update at start as
+                handleXChange(clickXOffset);
+            });
+
+            /* watch for outside slider value changes */
+            scope.$watch('sliderValue', function(){
+                // if it is dragging currently, don't react
+                if(isDragging) {
+                    return;
+                // if not, update slider values
+                } else {
+                    currentPercent = convertValueToPercent( scope.sliderValue );
+
+                    // hold percent bounds
+                    if(currentPercent > 100) {
+                        currentPercent = 100;
+                    } else if(currentPercent < 0) {
+                        currentPercent = 0;
+                    }
+
+                    // set handle position according to current percent
+                    TweenLite.set(handle, { x: convertPercentToX( currentPercent ) });
+                    // update draggable instance knowledge
+                    draggable[0].update();
+                    // update all other positions
+                    updateAdditionalPositions();
+                }
+            });
+
+
+            /*-----------------------------------------
+                Methods
+            -----------------------------------------*/
+
+            /* handles changes from slider */
+            function handleXChange(x) {
+                currentPercent = convertXToPercent(x);
+
+                updateAdditionalPositions();
+                updateScopeValues();
+            }
+
+            /* update position of track fill and input box */
+            function updateAdditionalPositions() {
+                TweenLite.set('#slider-track-fill', {width: currentPercent+'%'});
+                // percent in range 20-80
+                var relativePercent = currentPercent*0.6 + 20;
+                TweenLite.set('#price-box', {left: currentPercent+'%', xPercent: -relativePercent});
+                TweenLite.set('#price-arrow', {left: relativePercent+'%'});
+            }
+
+            /* updates scope values according to percent */
+            function updateScopeValues() {
+                scope.sliderValue = convertPercentToValue( currentPercent );
+                scope.$apply();
+            }
+
+
+            /*-----------------------------------------
+                Converting helpers
+            -----------------------------------------*/
+
+            /* function converting x value to percent */
+            function convertXToPercent(x) {
+                return x/maximumX*100;
+            }
+            /* function converting percent to x value */
+            function convertPercentToX(percent) {
+                return percent*maximumX/100;
+            }
+            /* function converting value to percent */
+            function convertValueToPercent(value) {
+                return ((value - scope.sliderMin) / (scope.sliderMax - scope.sliderMin)) * 100;
+            }
+            /* function converting value to percent */
+            function convertPercentToValue(percent) {
+                var value = percent * (scope.sliderMax - scope.sliderMin) + scope.sliderMin * 100;
+                value = Math.round(value);
+                value /= 100; // two decimal places this way
+                return value;
+            }
+        }
+    };
 }]);

@@ -7,3 +7,22 @@
 .outer-bevel {
     @include box-shadow(0px 1px 3px rgba(black, 0.3), 0px 1px 0px rgba(white, 0.5) inset);
 }
+
+.inner-bevel {
+    border: 1px solid #aaa;
+    @include box-shadow(0px 1px 0px rgba(white, 0.75), 0px 0px 1px rgba(black, 0.25) inset);
+    background: #c2c2c2;
+    @include background-image(linear-gradient(#c2c2c2, #cfcfcf));
+}
+
+.clean-input {
+    background: none;
+    border: none;
+    @include box-shadow(none);
+    outline: none;
+    // font-size: inherit;
+    // color: inherit;
+    // font-weight: inherit;
+}
+
+.ng-invalid-pattern { color: #D21919; }

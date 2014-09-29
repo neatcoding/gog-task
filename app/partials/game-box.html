@@ -1,18 +1,47 @@
-<figure ng-repeat="game in games" class="game game--one-of-{{games.length}}" ng-class="{'game--available': game.available, 'game--not-available': !game.available}">
-    <div class="game-image">
-        <img class="inactive-image" ng-src="assets/img/game-images/{{ game.slug }}-inactive.png" alt="">
-        <img class="active-image" ng-src="assets/img/game-images/{{ game.slug }}.png" alt="">
-    </div>
-    <hr>
-    <p>
-        <em class="un-dotted">{{ game.name }}</em> ({{ game.priceDescription }})<br>
-        <strong>{{ game.description }}</strong>
-    </p>
-    <hr>
-    <p>
-        <i class="icon gog-icons-green-tick"></i>
-        {{ game.supportDescription }} <strong ng-if="game.price > 1">(from {{ game.price | currency }})</strong>
-    </p>
-</figure>
+<div ng-controller="gameBoxCtrl">
+    <figure ng-repeat="game in games" class="game game--one-of-{{games.length}}" ng-class="{'game--available': game.available, 'game--not-available': !game.available}">
+        <div class="game-image">
+            <img class="inactive-image" ng-src="assets/img/game-images/{{ game.slug }}-inactive.png" alt="">
+            <img class="active-image" ng-src="assets/img/game-images/{{ game.slug }}.png" alt="">
+        </div>
+        <hr>
+        <p>
+            <em class="un-dotted">{{ game.name }}</em> ({{ game.priceDescription }})<br>
+            <strong>{{ game.description }}</strong>
+        </p>
+        <hr>
+        <p>
+            <i class="icon gog-icons-green-tick"></i>
+            {{ game.supportDescription }} <strong ng-if="game.price > 1">(from {{ game.price | currency }})</strong>
+        </p>
+    </figure>
 
-<div class="price-slider" ng-include="'app/partials/price-slider.html'"></div>
+
+    <section class="price-slider">
+        <div class="price-range-limit">{{ minimumSliderValue | currency }}</div>
+
+        <div class="slider-content-container">
+
+            <gog-price-slider id="slider-track" class="inner-bevel" slider-value="chosenPrice" slider-min="minimumSliderValue" slider-max="maximumSliderValue">
+                <div id="slider-track-fill"></div>
+                <img class="slider-track-handle" src="assets/img/game-box/handle.png" alt="" width="17" height="33">
+            </gog-price-slider>
+
+            <div id="price-box" class="inner-bevel">
+                <span id="price-arrow"></span>
+
+                <label for="price-input" class="light-green font-bold">$</label><input id="price-input" class="clean-input light-green font-bold" type="text" ng-model="chosenPrice" ng-pattern="moneyPattern">
+
+                <a class="button button--green" href="#/">Checkout now</a>
+
+                <p class="additional-info small-text light-grey">
+                    <i class="icon gog-icons-info"></i> Click the price to type it in manually
+                </p>
+            </div>
+        </div>
+
+        <div class="price-range-limit">{{ visibleMaximumSliderValue | currency }}</div>
+
+
+    </section>
+</div>

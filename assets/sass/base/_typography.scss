@@ -14,9 +14,8 @@ h1 {
     padding-top: 0.2em;
 }
 
-p {
-    font-size: 12px;
-}
+p { font-size: 12px; }
+.small-text { font-size: 10px; }
 
 // strong means semi-bold for designer
 strong { font-weight: 600; }
@@ -32,7 +31,11 @@ strong { font-weight: 600; }
 
 .centered { text-align: center; }
 
+// font colors
 .dark-grey { color: $dark-grey; }
+.light-grey { color: $light-grey; }
+.green { color: $grass-green; }
+.light-green { color: $grass-green-lighter; }
 
 // reset separator styles
 hr {

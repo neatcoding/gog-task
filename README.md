@@ -10,7 +10,7 @@ Note: it would be faster for user to just put it in HTML of the site.
 
 I use page route just to demonstrate. Should remove it for SEO purposes.
 
-gogPriceSlider directive is created to have customized slider
+gogPriceSlider directive is created to have customized slider coming from my hands.
 
 
 <h2>Grunt</h2>

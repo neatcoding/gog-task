@@ -3,40 +3,42 @@
     position: absolute;
     bottom: 0; left: 0;
 }
-
 .price-slider {
     height: 160px;
     width: $siteWidth;
 }
 
-.price-range-limit, .slider-track {
+// aligning in the line
+.price-range-limit, .slider-content-container {
     display: inline-block;
     vertical-align: middle;
     line-height: 16px;
 }
 
-.price-range-limit {
-    @extend strong;
-}
+// limits fonts
+.price-range-limit { @extend strong; }
 
-.slider-track, .slider-track-fill {
-    $trackHeight: 12px;
+$trackHeight: 12px;
+#slider-track, #slider-track-fill {
     height: $trackHeight;
     @include border-radius($trackHeight/2);
 }
-
-.slider-track {
-    width: 780px;
+.slider-content-container {
+    width: 780px + 2px; // 2px of border, I know it's not so beautiful
+    height: $trackHeight;
     margin: 30px 10px;
     position: relative;
-
-    border: 1px solid #aaa;
-    @include box-shadow(0px 1px 0px rgba(white, 0.75), 0px 0px 1px rgba(black, 0.25) inset);
-    background: #c2c2c2;
-    @include background-image(linear-gradient(#c2c2c2, #cfcfcf));
 }
 
-.slider-track-fill {
+#slider-track {
+    display: block;
+    position: absolute;
+    width: 100%;
+
+    @include box-shadow(0px 1px 0px rgba(white, 0.75), 0px 0px 1px rgba(black, 0.25) inset);
+}
+
+#slider-track-fill {
     position: absolute;
     left: -1px; top: -1px; // place for border
 
@@ -53,4 +55,45 @@
     top: -7px;
     left: 0;
     margin-left: -8px;
+    z-index: 2;
+}
+
+#price-box {
+    position: absolute;
+    top: 27px;
+    $priceFontSize: 25px;
+    padding: 10px;
+    @include border-radius(7px);
+    min-width: 225px;
+    @include box-sizing(border-box);
+
+    >* { display: inline-block; vertical-align: middle; }
+
+    label, input {
+        font-size: $priceFontSize;
+    }
+
+    label {
+        margin-left: 5px;
+    }
+
+    input {
+        width: 70px;
+    }
+
+    .additional-info {
+        position: absolute;
+        top: 110%;
+        left: 0;
+    }
+}
+
+#price-arrow {
+    background: url(../img/game-box/price-box-arrow.png) no-repeat 0 0;
+    position: absolute;
+    left: 50%;
+    width: 16px;
+    height: 9px;
+    margin-left: -8px;
+    top: -8px;
 }
