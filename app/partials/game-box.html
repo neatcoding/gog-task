@@ -36,7 +36,7 @@
 
                 <label for="price-input" class="light-green font-bold">$</label><input id="price-input" class="clean-input light-green font-bold" type="text" ng-model="chosenPrice" ng-pattern="moneyPattern">
 
-                <a class="button button--green" href="#/">Checkout now</a>
+                <a ng-class="{'button--inactive': !checkoutEnabled}" class="button button--green" ng-href="{{checkoutHref}}">Checkout now</a>
 
                 <p class="additional-info small-text light-grey">
                     <i class="icon gog-icons-info"></i> Click the price to type it in manually

@@ -28,3 +28,8 @@
         @include background-image(linear-gradient(lighten(#6c9600, 5%), #a6c500));
     }
 }
+
+.button--inactive {
+    cursor: default;
+    @include opacity(0.5);
+}

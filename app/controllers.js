@@ -16,6 +16,8 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
 
     // slider takes value of the last game
     $scope.chosenPrice = $scope.games[$scope.games.length-1].price;
+    // this variable defines if checkout is available
+    setCheckoutEnabled(true);
 
     // introduce game availability state property
     updateGamesAvailability();
@@ -26,7 +28,6 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
 
     // calculate game percent of slider values
     $scope.games.forEach(function(game){
-        console.log('range', ($scope.maximumSliderValue-$scope.minimumSliderValue));
         game.percentOfWhole = (game.price - $scope.minimumSliderValue)/($scope.maximumSliderValue-$scope.minimumSliderValue)*100;
     });
 
@@ -42,16 +43,24 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
         var regexp = /^\d{0,}(\.\d{0,2}){0,1}$/;
         return {
             test: function(value) {
-                return regexp.test(value);
+                var testResult = regexp.test(value);
+                setCheckoutEnabled(testResult);
+                return testResult;
             }
         };
     })();
 
     // check what to show on slider right side
-    $scope.$watch('chosenPrice', function(){
+    $scope.$watch('chosenPrice', function() {
         updateMaxValue();
         updateGamesAvailability();
     });
+
+    // function sets checkout enabled or disabled
+    function setCheckoutEnabled(_isEnabled) {
+        $scope.checkoutHref = _isEnabled ? '#/checkout' : '#/';
+        $scope.checkoutEnabled = _isEnabled;
+    }
 
     /* updates maximum visible slider value; */
     function updateMaxValue() {
