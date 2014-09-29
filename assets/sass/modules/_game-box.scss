@@ -24,7 +24,23 @@ $gameBoxHorizontalPadding: 30px; // needed for inside space calculations
         margin-left: floor($spaceBetweenGames);
         width: $singleGameWidth;
     }
-    &:first-child { margin-left: 0; }
+    // plus
+    &:before {
+        @extend .gog-icons-plus;
+        display: block;
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 40px;
+        @include transition(.25s);
+        @include opacity(0);
+        @include scale(0.3);
+    }
+    // first one doesn't have margin and plus
+    &:first-child {
+        margin-left: 0;
+        &:before { display: none; }
+    }
 }
 
 // image box
@@ -45,17 +61,8 @@ $gameBoxHorizontalPadding: 30px; // needed for inside space calculations
         @include opacity(1);
     }
     &:before {
-        @extend .gog-icons-plus;
-        display: block;
-        content: "";
-        position: absolute;
-        right: 100%;
-        top: 40px;
-    }
-    &:first-child {
-        &:before {
-            display: none;
-        }
+        @include opacity(1);
+        @include scale(1);
     }
 }
 
