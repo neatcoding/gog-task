@@ -2,7 +2,7 @@ Creator: Jan Nowotny
 
 <h1>GOG Task - Divinity Bundle v0.9</h1>
 
-demo&colon; http://neatcoding.com/gog-task/
+demo: http://neatcoding.com/gog-task/
 
 
 <h2>Angular</h2>
