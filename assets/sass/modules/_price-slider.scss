@@ -86,6 +86,11 @@ $trackHeight: 12px;
         top: 110%;
         left: 0;
     }
+
+    &.wide {
+        min-width: 255px;
+        input { width: 100px; }
+    }
 }
 
 #price-arrow {

@@ -15,7 +15,7 @@
     @include background-image(linear-gradient(#c2c2c2, #cfcfcf));
 }
 
-.clean-input {
+input.clean-input {
     background: none;
     border: none;
     @include box-shadow(none);

@@ -27,7 +27,7 @@
                 <img class="slider-track-handle" src="assets/img/game-box/handle.png" alt="" width="17" height="33">
             </gog-price-slider>
 
-            <div id="price-box" class="inner-bevel">
+            <div id="price-box" class="inner-bevel" ng-class="{'wide': chosenPrice.toString().length > 5}">
                 <span id="price-arrow"></span>
 
                 <label for="price-input" class="light-green font-bold">$</label><input id="price-input" class="clean-input light-green font-bold" type="text" ng-model="chosenPrice" ng-pattern="moneyPattern">
