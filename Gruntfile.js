@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     'vendors/TweenLite.min.js',
     'vendors/Draggable.min.js',
     'vendors/CSSPlugin.min.js',
+    'vendors/RoundPropsPlugin.min.js',
     'vendors/angular.min.js',
     'vendors/angular-route.min.js',
     'vendors/angular-resource.min.js',

@@ -4,11 +4,7 @@ var gogControllers = angular.module('gogControllers', []);
     home page controller
 -----------------------------------------*/
 
-gogControllers.controller('homePageCtrl', ['$scope', 'Games', function ($scope, Games) {
-    // get data from Games service
-    $scope.gamesSold = Games.getGamesSold();
-}]);
-
+gogControllers.controller('homePageCtrl', ['$scope', function ($scope) {}]);
 
 gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, Games) {
     // get data from Games service
@@ -77,5 +73,44 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
                 game.available = false;
             }
         });
+    }
+}]);
+
+
+gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope, Games) {
+    // get data from Games service
+    $scope.gamesSold = Games.getGamesSold();
+
+    // animate gamesSold $scope object property imitating real time updates
+    TweenLite.ticker.addEventListener('tick', processGamesSoldDigits);
+    TweenLite.to($scope, 80, {
+        gamesSold: '+=20000',
+        roundProps: 'gamesSold', // games are whole numbers, not floats
+        ease: Power1.easeInOut,
+        onComplete: function(){
+            // remove updates after tween is completed
+            TweenLite.ticker.removeEventListener('tick', processGamesSoldDigits);
+            processGamesSoldDigits();
+        }
+    });
+
+    // could do this with $watch, but it's inefficient
+    function processGamesSoldDigits() {
+        // build digits to show
+        $scope.gamesSoldDigits = numberWithDots($scope.gamesSold);
+
+        // prevent apply during digest
+        if(!$scope.$$phase) {
+            $scope.$apply();
+        }
+    }
+
+    // format number in thousands separated with dots style
+    function numberWithDots(x) {
+        x = x.toString();
+        var pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(x))
+            x = x.replace(pattern, "$1.$2");
+        return x;
     }
 }]);
