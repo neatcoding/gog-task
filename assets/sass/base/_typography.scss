@@ -57,3 +57,22 @@ hr {
     display: inline-block;
     line-height: 1em;
 }
+
+.line-decorated {
+    text-align: center;
+    position: relative;
+    &:before, &:after {
+        content: ""; display: block;
+        top: 50%;
+        height: 1px;
+        width: 20%;
+        background: #bfbfbf;
+        position: absolute;
+    }
+    &:before {
+        left: 0;
+    }
+    &:after {
+        right: 0;
+    }
+}

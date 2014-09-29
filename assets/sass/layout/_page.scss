@@ -17,3 +17,11 @@ body {
     width: $siteWidth;
     margin: 0 auto;
 }
+
+
+.column-2-of-3 {
+    @include column(2, 3, $sitePadding);
+}
+.column-1-of-3 {
+    @include column(1, 3, $sitePadding);
+}

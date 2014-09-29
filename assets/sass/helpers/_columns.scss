@@ -8,18 +8,22 @@
 // setup
 // --------------------------------------------------
 
-$columns: 16;
+$columns: 3;
 
 
 // --------------------------------------------------
 // define a single or simple-fraction column
 // --------------------------------------------------
 
-@mixin column($amount:$columns, $context:$columns) {
+@mixin column($amount:$columns, $context:$columns, $padding: 0px) {
     @include box-sizing(border-box);
     display: inline-block;
     width: $amount * (100 / $context) * 1%;
     vertical-align: top;
+    @if $padding > 0 {
+        padding-left: $padding;
+        padding-right: $padding;
+    }
 }
 
 
