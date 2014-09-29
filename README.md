@@ -3,6 +3,7 @@ Creator: Jan Nowotny
 <h1>GOG Task - Divinity Bundle v0.9</h1>
 
 demo: http://neatcoding.com/gog-task/
+There's no counting in the footer, but code is ready to check.
 
 
 <h2>Angular</h2>
