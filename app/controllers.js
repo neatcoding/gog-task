@@ -14,15 +14,19 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     // get data from Games service
     $scope.games = Games.getGames();
 
-    // introduce game availability state property
-    $scope.games.forEach(function(game){ game.available = true; });
-
     // slider takes value of the last game
     $scope.chosenPrice = $scope.games[$scope.games.length-1].price;
+
+    // introduce game availability state property
+    updateGamesAvailability();
 
     // minimum and maximum values
     $scope.minimumSliderValue = $scope.games[0].price;
     $scope.maximumSliderValue = 49.99;
+
+    $scope.setPrice = function(_price) {
+        $scope.chosenPrice = _price;
+    };
 
     updateMaxValue();
 
@@ -37,11 +41,25 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     })();
 
     // check what to show on slider right side
-    $scope.$watch('chosenPrice', updateMaxValue);
+    $scope.$watch('chosenPrice', function(){
+        updateMaxValue();
+        updateGamesAvailability();
+    });
 
     /* updates maximum visible slider value; */
     function updateMaxValue() {
         // if chosen value is greater than maximum on slider, show chosen value on the right
         $scope.visibleMaximumSliderValue = (angular.isDefined($scope.chosenPrice) && $scope.maximumSliderValue < $scope.chosenPrice) ? $scope.chosenPrice : $scope.maximumSliderValue;
+    }
+
+    /* updates game availability states */
+    function updateGamesAvailability() {
+        $scope.games.forEach(function(game){
+            if(angular.isDefined($scope.chosenPrice) && game.price <= $scope.chosenPrice) {
+                game.available = true;
+            } else {
+                game.available = false;
+            }
+        });
     }
 }]);

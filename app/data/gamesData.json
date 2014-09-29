@@ -13,6 +13,7 @@
                 "price": 7.67,
                 "priceDescription": "normal price $5.99",
                 "supportDescription": "Above average",
+                "sliderText": "Average",
                 "description": "with 6 goodies and 4 language versions"
             }, {
                 "name": "Divinity 2",
@@ -20,6 +21,7 @@
                 "price": 18.31,
                 "priceDescription": "preorder, normal price $19.99",
                 "supportDescription": "Top supporter",
+                "sliderText": "Top 10%",
                 "description": "with 9 goodies and 7 language versions"
             }
         ],
