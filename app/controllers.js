@@ -24,6 +24,13 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     $scope.minimumSliderValue = $scope.games[0].price;
     $scope.maximumSliderValue = 49.99;
 
+    // calculate game percent of slider values
+    $scope.games.forEach(function(game){
+        console.log('range', ($scope.maximumSliderValue-$scope.minimumSliderValue));
+        game.percentOfWhole = (game.price - $scope.minimumSliderValue)/($scope.maximumSliderValue-$scope.minimumSliderValue)*100;
+    });
+
+    // function that updates price (with click for example)
     $scope.setPrice = function(_price) {
         $scope.chosenPrice = _price;
     };
