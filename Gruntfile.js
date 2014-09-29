@@ -22,12 +22,13 @@ module.exports = function(grunt) {
       compiled: 'web/js/handlebars'
     },
     watch: {
+      // coffee: {
+        // files: coffee_files,
+      //   tasks: ['coffee']
+      // },
       uglify: {
         files: uglify_files,
-        tasks: ['uglify'],
-        options: {
-          livereload: true
-        }
+        tasks: ['uglify']
       },
       livereload: {
         files: [
@@ -48,7 +49,9 @@ module.exports = function(grunt) {
     uglify: {
       gog: {
         options: {
-          preserveComments: 'some'
+          preserveComments: 'some'//,
+          // compress: false,
+          // mangle: false
         },
         files: {
           'assets/js/script.all.min.js': uglify_files
