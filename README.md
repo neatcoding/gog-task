@@ -28,4 +28,4 @@ CSS mapping is enabled in config.rb, so You can see see .scss file and line easi
 
 <h2>Cross-Browsing</h2>
 
-Works in IE9+
+Works in IE9+, IE8 doesn't work probably because of custom tag directive.
