@@ -81,18 +81,32 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
 gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope, Games) {
     // get data from Games service
     $scope.gamesSold = Games.getGamesSold();
-    processGamesSoldToDigits();
+    $scope.trailerAvailable = false;
+    $scope.gamesSoldRequiredForTrailer = Games.getGamesSoldRequiredForTrailer();
 
     // animate gamesSold $scope object property imitating real time updates
-    TweenLite.to($scope, 80, {
+    TweenLite.to($scope, 60, {
         gamesSold: '+=20000',
         roundProps: 'gamesSold', // games are whole numbers, not floats
         ease: Power1.easeInOut,
-        onUpdate: processGamesSoldToDigits
+        onUpdate: function(){ $scope.$apply(); } // apply scope every frame of animation
+    });
+
+    // watch games sold change
+    $scope.$watch('gamesSold', function(){
+        // process it to digits
+        processGamesSoldToDigits();
+        // check if trailer is available
+        if($scope.gamesSold > $scope.gamesSoldRequiredForTrailer) {
+            $scope.trailerAvailable = true;
+        } else {
+            $scope.trailerAvailable = false;
+        }
     });
 
     // could do this with $watch, but it's inefficient
     function processGamesSoldToDigits() {
+        console.log('process');
         // build digits to show
         $scope.gamesSoldDigits = numberWithDots($scope.gamesSold);
 

@@ -5,6 +5,7 @@
 
 gogApp.service('Games', ['$http', function ($http) {
     var gamesData;
+    var gamesSoldRequiredForTrailer = 25000;
 
     // get data from json file and promise it
     this.promise = $http.get('app/data/gamesData.json').success(function (data) {
@@ -24,5 +25,9 @@ gogApp.service('Games', ['$http', function ($http) {
 
     this.getGamesSold = function() {
         return gamesData.gamesSoldArr;
+    };
+
+    this.getGamesSoldRequiredForTrailer = function() {
+        return gamesSoldRequiredForTrailer;
     };
 }]);
