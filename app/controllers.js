@@ -89,13 +89,15 @@ gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope,
         gamesSold: '+=20000',
         roundProps: 'gamesSold', // games are whole numbers, not floats
         ease: Power1.easeInOut,
-        onUpdate: function(){ $scope.$apply(); } // apply scope every frame of animation
+        // digest scope every frame of animation to react on gamesSold change
+        onUpdate: function(){ $scope.$digest(); }
     });
 
     // watch games sold change
     $scope.$watch('gamesSold', function(){
-        // process it to digits
-        processGamesSoldToDigits();
+        // process gamesSold to digits to show them
+        $scope.gamesSoldDigits = numberWithDots($scope.gamesSold);
+
         // check if trailer is available
         if($scope.gamesSold > $scope.gamesSoldRequiredForTrailer) {
             $scope.trailerAvailable = true;
@@ -104,19 +106,7 @@ gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope,
         }
     });
 
-    // could do this with $watch, but it's inefficient
-    function processGamesSoldToDigits() {
-        console.log('process');
-        // build digits to show
-        $scope.gamesSoldDigits = numberWithDots($scope.gamesSold);
-
-        // prevent apply during digest
-        if(!$scope.$$phase) {
-            $scope.$apply();
-        }
-    }
-
-    // format number in thousands separated with dots style
+    // helper to format number in thousands separated with dots style
     function numberWithDots(x) {
         x = x.toString();
         var pattern = /(-?\d+)(\d{3})/;
