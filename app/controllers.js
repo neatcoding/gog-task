@@ -10,8 +10,7 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     // get data from Games service
     $scope.games = Games.getGames();
 
-    // slider takes value of the last game
-    $scope.chosenPrice = $scope.games[$scope.games.length-1].price;
+    $scope.chosenPrice = Games.getChosenPrice;
     // this variable defines if checkout is available
     setCheckoutEnabled(true);
 
