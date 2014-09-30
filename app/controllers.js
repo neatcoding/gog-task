@@ -10,8 +10,9 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     // get data from Games service
     $scope.games = Games.getGames();
 
+    // if we would re-use this somewhere, we should store it in service
     $scope.chosenPrice = Games.getDefaultPrice();
-    // this variable defines if checkout is available
+    // this function defines if checkout should be visible
     setCheckoutEnabled(true);
 
     // introduce game availability state property
@@ -51,6 +52,7 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
         updateGamesAvailability();
     });
 
+
     // function sets checkout enabled or disabled
     function setCheckoutEnabled(_isEnabled) {
         $scope.checkoutHref = _isEnabled ? '#/checkout' : '#/';
@@ -79,22 +81,18 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
 gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope, Games) {
     // get data from Games service
     $scope.gamesSold = Games.getGamesSold();
+    processGamesSoldToDigits();
 
     // animate gamesSold $scope object property imitating real time updates
-    TweenLite.ticker.addEventListener('tick', processGamesSoldDigits);
     TweenLite.to($scope, 80, {
         gamesSold: '+=20000',
         roundProps: 'gamesSold', // games are whole numbers, not floats
         ease: Power1.easeInOut,
-        onComplete: function(){
-            // remove updates after tween is completed
-            TweenLite.ticker.removeEventListener('tick', processGamesSoldDigits);
-            processGamesSoldDigits();
-        }
+        onUpdate: processGamesSoldToDigits
     });
 
     // could do this with $watch, but it's inefficient
-    function processGamesSoldDigits() {
+    function processGamesSoldToDigits() {
         // build digits to show
         $scope.gamesSoldDigits = numberWithDots($scope.gamesSold);
 
