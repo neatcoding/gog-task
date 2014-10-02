@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-  var uglify_files = [
+  var uglifyFiles = [
     'vendors/TweenLite.min.js',
     'vendors/Draggable.min.js',
     'vendors/CSSPlugin.min.js',
@@ -15,25 +15,28 @@ module.exports = function(grunt) {
     'app/services.js'
   ];
 
+  var compassFiles = [
+    'assets/sass/**/*.scss'
+  ];
+
+  var liveReloadFiles = [
+    'assets/js/*.js',
+    'assets/css/*.css', '**/*.html'
+  ];
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    dirs: {
-      handlebars: 'web/handlebars',
-      compiled: 'web/js/handlebars'
-    },
     watch: {
       uglify: {
-        files: uglify_files,
-        tasks: ['uglify'],
-        options: {
-          livereload: true
-        }
+        files: uglifyFiles,
+        tasks: ['uglify']
+      },
+      compass: {
+        files: compassFiles,
+        tasks: ['compass']
       },
       livereload: {
-        files: [
-          'assets/js/*.js',
-          'assets/css/*.css', '**/*.html'
-        ],
+        files: liveReloadFiles,
         options: {
           livereload: true
         }
@@ -45,13 +48,21 @@ module.exports = function(grunt) {
         }
       }
     },
+    compass: {
+      compile: {
+        options: {
+          config: 'assets/config.rb',
+          basePath: 'assets'
+        }
+      }
+    },
     uglify: {
       gog: {
         options: {
           preserveComments: 'some'
         },
         files: {
-          'assets/js/script.all.min.js': uglify_files
+          'assets/js/script.all.min.js': uglifyFiles
         }
       }
     }
@@ -60,8 +71,9 @@ module.exports = function(grunt) {
 
   // grunt.loadNpmTasks('grunt-contrib-coffee');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', [/*'coffee',*/ 'uglify']);
+  grunt.registerTask('default', ['compass', 'uglify']);
 
 };

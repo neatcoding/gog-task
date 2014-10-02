@@ -3,7 +3,6 @@ Creator: Jan Nowotny
 <h1>GOG Task - Divinity Bundle v0.9</h1>
 
 demo: http://neatcoding.com/gog-task/
-There's no counting in the footer, but code is ready to check.
 
 
 <h2>Angular</h2>
@@ -19,6 +18,7 @@ gogPriceSlider directive is created to have customized slider coming from my han
 <h2>Grunt</h2>
 
 Grunt combines javascript to one file with uglify.
+Compiles compass files.
 It is ready to use coffeescript (compile before uglify).
 
 
@@ -26,9 +26,9 @@ It is ready to use coffeescript (compile before uglify).
 
 I reduced grey colors, because you shouldn't use so many colors in a project. :)
 
-CSS mapping is enabled in config.rb, so You can see see .scss file and line easily in chrome (enable css source maps in devtools options).
+CSS mapping is enabled in config.rb, so You can see see .scss file and line easily in chrome (enable css source maps in devtools options). (see config.rb:21 if getting errors)
 
 
 <h2>Cross-Browsing</h2>
 
-Works in IE9+, IE8 doesn't work probably because of custom tag directive.
+Works in IE9+, IE8 doesn't work because of custom tag directive.
