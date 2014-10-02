@@ -22,7 +22,9 @@ module.exports = function(grunt) {
 
   var liveReloadFiles = [
     'assets/js/*.js',
-    'assets/css/*.css', '**/*.html'
+    'assets/css/*.css',
+    '*.html', 'app/**/*.html',
+    'app/data/**/*.json'
   ];
 
   grunt.initConfig({
@@ -64,10 +66,10 @@ module.exports = function(grunt) {
     uglify: {
       gog: {
         options: {
-          preserveComments: 'some'//,
-          // should be done by dev and prod environment detection
-          // compress: false,
-          // mangle: false
+          preserveComments: 'some'
+          // could be done by grunt-environment (dev and prod)
+          ,compress: false,
+          mangle: false
         },
         files: {
           'assets/js/script.all.min.js': uglifyFiles
