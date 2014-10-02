@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     watch: {
       // coffee: {
-        // files: coffeeFiles,
+      //   files: coffeeFiles,
       //   tasks: ['coffee']
       // },
       uglify: {
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
       gog: {
         options: {
           preserveComments: 'some'//,
-		  // should be done by dev and prod environment detection
+          // should be done by dev and prod environment detection
           // compress: false,
           // mangle: false
         },
