@@ -27,7 +27,7 @@
                 <img class="slider-track-handle" src="assets/img/game-box/handle.png" alt="" width="17" height="33">
             </gog-price-slider>
 
-            <div class="game-point game-point--nr-{{$index}}" ng-repeat="game in games" ng-if="$index>0" style="left: {{ game.percentOfWhole }}%">
+            <div ng-click="setPrice(game.price)" class="game-point game-point--nr-{{$index}}" ng-repeat="game in games" ng-if="$index>0" style="left: {{ game.percentOfWhole }}%">
                 <label class="small-text light-grey" ng-class="{'shift-away': gameTresholdsClose}">{{ game.price | currency }} ({{ game.sliderText }})</label>
             </div>
 
