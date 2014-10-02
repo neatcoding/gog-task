@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     'vendors/TweenLite.min.js',
     'vendors/Draggable.min.js',
     'vendors/CSSPlugin.min.js',
+    'vendors/RoundPropsPlugin.min.js',
     'vendors/angular.min.js',
     'vendors/angular-route.min.js',
     'vendors/angular-resource.min.js',
@@ -27,6 +28,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     watch: {
+      // coffee: {
+        // files: coffeeFiles,
+      //   tasks: ['coffee']
+      // },
       uglify: {
         files: uglifyFiles,
         tasks: ['uglify']
@@ -59,7 +64,10 @@ module.exports = function(grunt) {
     uglify: {
       gog: {
         options: {
-          preserveComments: 'some'
+          preserveComments: 'some'//,
+		  // should be done by dev and prod environment detection
+          // compress: false,
+          // mangle: false
         },
         files: {
           'assets/js/script.all.min.js': uglifyFiles
@@ -74,6 +82,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['compass', 'uglify']);
+  grunt.registerTask('default', [/*'coffee',*/ 'compass', 'uglify']);
 
 };

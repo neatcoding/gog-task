@@ -1,24 +1,33 @@
+/*-----------------------------------------
+    Games service gets data from JSON, promise them
+    and provides interface to retrieve them
+-----------------------------------------*/
+
 gogApp.service('Games', ['$http', function ($http) {
-    var myData = null;
+    var gamesData;
+    var gamesSoldRequiredForTrailer = 25000;
 
-    var promiseGames = $http.get('app/data/gamesData.json').success(function (data) {
-        myData = data;
+    // get data from json file and promise it
+    this.promise = $http.get('app/data/gamesData.json').success(function (data) {
+        gamesData = data;
+        gamesData.gamesSoldArr = [gamesData.gamesSold];
     });
 
-    // get data from json file
-    var promise = promiseGames.then(function () {
-        return $http.get('app/data/gamesData.json').success(function (data) {
-            // Read and process another file
-        });
-    });
+    // returns games list
+    this.getGames = function() {
+        return gamesData.games;
+    };
 
-    return {
-        promise: promise,
-        getGames: function() {
-            return myData.games;
-        },
-        getGamesSold: function() {
-            return myData.gamesSold;
-        }
+    this.getDefaultPrice = function() {
+        // default chosen price is last game price
+        return gamesData.games[gamesData.games.length-1].price;
+    };
+
+    this.getGamesSold = function() {
+        return gamesData.gamesSoldArr;
+    };
+
+    this.getGamesSoldRequiredForTrailer = function() {
+        return gamesSoldRequiredForTrailer;
     };
 }]);

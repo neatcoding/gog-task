@@ -1,0 +1,9 @@
+.counter {
+    font-family: $dsDigital;
+    font-size: 30px;
+
+    .digit {
+        display: inline-block;
+        width: 10px;
+    }
+}

@@ -4,19 +4,15 @@ var gogControllers = angular.module('gogControllers', []);
     home page controller
 -----------------------------------------*/
 
-gogControllers.controller('homePageCtrl', ['$scope', 'Games', function ($scope, Games) {
-    // get data from Games service
-    $scope.gamesSold = Games.getGamesSold();
-}]);
-
+gogControllers.controller('homePageCtrl', ['$scope', function ($scope) {}]);
 
 gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, Games) {
     // get data from Games service
     $scope.games = Games.getGames();
 
-    // slider takes value of the last game
-    $scope.chosenPrice = $scope.games[$scope.games.length-1].price;
-    // this variable defines if checkout is available
+    // if we would re-use this somewhere, we should store it in service
+    $scope.chosenPrice = Games.getDefaultPrice();
+    // this function defines if checkout should be visible
     setCheckoutEnabled(true);
 
     // introduce game availability state property
@@ -56,6 +52,7 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
         updateGamesAvailability();
     });
 
+
     // function sets checkout enabled or disabled
     function setCheckoutEnabled(_isEnabled) {
         $scope.checkoutHref = _isEnabled ? '#/checkout' : '#/';
@@ -77,5 +74,44 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
                 game.available = false;
             }
         });
+    }
+}]);
+
+
+gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope, Games) {
+    // get data from Games service
+    $scope.gamesSold = Games.getGamesSold();
+    $scope.trailerAvailable = false;
+    $scope.gamesSoldRequiredForTrailer = Games.getGamesSoldRequiredForTrailer();
+
+    // animate gamesSold $scope object property imitating real time updates
+    TweenLite.to($scope, 60, {
+        gamesSold: '+=20000',
+        roundProps: 'gamesSold', // games are whole numbers, not floats
+        ease: Power1.easeInOut,
+        // digest scope every frame of animation to react on gamesSold change
+        onUpdate: function(){ $scope.$digest(); }
+    });
+
+    // watch games sold change
+    $scope.$watch('gamesSold', function(){
+        // process gamesSold to digits to show them
+        $scope.gamesSoldDigits = numberWithDots($scope.gamesSold);
+
+        // check if trailer is available
+        if($scope.gamesSold > $scope.gamesSoldRequiredForTrailer) {
+            $scope.trailerAvailable = true;
+        } else {
+            $scope.trailerAvailable = false;
+        }
+    });
+
+    // helper to format number in thousands separated with dots style
+    function numberWithDots(x) {
+        x = x.toString();
+        var pattern = /(-?\d+)(\d{3})/;
+        while (pattern.test(x))
+            x = x.replace(pattern, "$1.$2");
+        return x;
     }
 }]);
