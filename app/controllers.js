@@ -28,6 +28,7 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     });
 
     // check if game prices are close
+    // (could be done also with hit test)
     $scope.gameTresholdsClose = ($scope.games[2].price - $scope.games[1].price) < 5.5;
 
     // function that updates price (with click for example)
