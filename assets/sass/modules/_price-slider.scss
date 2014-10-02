@@ -76,11 +76,15 @@ $trackHeight: 12px;
     margin-left: -3px;
     label {
         position: absolute;
-        min-width: 110px;
-        margin-left: -60px;
-        left: 0; top: -34px;
+        width: 110px;
+        margin-left: -55px;
+        left: 3px; top: -34px;
     }
 }
+
+// individual shifting
+.game-point--nr-1 label.shift-away { margin-left: -115px; text-align: right; }
+.game-point--nr-2 label.shift-away { margin-left: 5px; text-align: left; }
 
 // price box
 #price-box {

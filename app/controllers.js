@@ -10,7 +10,7 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     // get data from Games service
     $scope.games = Games.getGames();
 
-    // if we would re-use this somewhere, we should store it in service
+    // if we would re-use this somewhere, we should store it in a service
     $scope.chosenPrice = Games.getDefaultPrice();
     // this function defines if checkout should be visible
     setCheckoutEnabled(true);
@@ -27,11 +27,15 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
         game.percentOfWhole = (game.price - $scope.minimumSliderValue)/($scope.maximumSliderValue-$scope.minimumSliderValue)*100;
     });
 
+    // check if game prices are close
+    $scope.gameTresholdsClose = ($scope.games[2].price - $scope.games[1].price) < 5.5;
+
     // function that updates price (with click for example)
     $scope.setPrice = function(_price) {
         $scope.chosenPrice = _price;
     };
 
+    // update what to show in max slider value
     updateMaxValue();
 
     // pattern checking if money input is valid
