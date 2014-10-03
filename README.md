@@ -1,6 +1,6 @@
 Creator: Jan Nowotny
 
-<h1>GOG Task - Divinity Bundle v0.98</h1>
+<h1>GOG Task - Divinity Bundle</h1>
 
 demo: http://neatcoding.com/gog-task/
 
