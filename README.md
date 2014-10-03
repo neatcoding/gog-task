@@ -12,7 +12,7 @@ Note: it would be faster for user to just put it in HTML of the site.
 
 I use page route just to demonstrate.
 
-gogPriceSlider directive is created to have customized slider coming from my hands.
+gogPriceSlider directive is created to have customized slider.
 
 You can try to click on the slider, click on games, or write price.
 
@@ -33,4 +33,4 @@ CSS mapping is enabled in config.rb, so You can see see .scss file and line easi
 
 <h2>Cross-Browsing</h2>
 
-Works in IE9+, IE8 doesn't work because of custom tag directive.
+Works in IE9+, IE8 doesn't work because of custom tag directives.

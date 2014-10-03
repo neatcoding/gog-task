@@ -1,10 +1,10 @@
 var gogControllers = angular.module('gogControllers', []);
 
 /*-----------------------------------------
-    Home page controller
+    Home page controller not needed
 -----------------------------------------*/
 
-gogControllers.controller('homePageCtrl', ['$scope', function ($scope) {}]);
+// gogControllers.controller('homePageCtrl', ['$scope', function ($scope) {}]);
 
 
 /*-----------------------------------------
