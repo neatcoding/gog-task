@@ -122,6 +122,7 @@ gogControllers.controller('bonusesCtrl', ['$scope', 'Games', function ($scope, G
             if(bonus.percentReached > 100) {
                 bonus.percentReached = 100;
             }
+            bonus.reached = (bonus.percentReached == 100);
         });
     });
 

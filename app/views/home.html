@@ -77,22 +77,27 @@
             <span ng-class="{'digit inner-bevel inner-bevel--field': gamesSoldDigits[i]!='.', 'dot-hole': gamesSoldDigits[i]=='.'}" ng-repeat="i in [0,1,2,3,4,5,6]">{{gamesSoldDigits[i]}}</span>
         </div>
 
-        <p>
+        <p ng-if="!bonuses[selectedBonus].reached">
             <strong>Reach {{ bonuses[selectedBonus].treshold | numberDotted : 0 }}...</strong><br>
             ...to unlock {{ bonuses[selectedBonus].description }}.
         </p>
+        <p ng-if="bonuses[selectedBonus].reached">
+            <strong>You reached {{ bonuses[selectedBonus].treshold | numberDotted : 0 }}...</strong><br>
+            ...and unlocked {{ bonuses[selectedBonus].description }}.
+        </p>
+
     </div>
 
     <div class="bonus-slider noselect">
         <i class="icon gog-icons-arrow-left pointer" ng-click="selectBonus(selectedBonus-1)"></i>
 
-        <figure class="polaroid-image" ng-class="{'polaroid-image--dimmed': bonuses[selectedBonus].percentReached < 100}">
+        <figure class="polaroid-image" ng-class="{'polaroid-image--dimmed': !bonuses[selectedBonus].reached}">
             <img src="" ng-src="{{bonuses[selectedBonus].image}}" alt="bonuses[selectedBonus].description">
 
-            <div class="progress" ng-if="bonuses[selectedBonus].percentReached < 100">
+            <div class="progress" ng-if="!bonuses[selectedBonus].reached">
                 {{ bonuses[selectedBonus].percentReached }}%
             </div>
-            <div class="play" ng-if="bonuses[selectedBonus].percentReached == 100">
+            <div class="play" ng-if="bonuses[selectedBonus].reached">
                 play
             </div>
         </figure>
@@ -104,8 +109,8 @@
     <menu class="select-menu select-menu--of-{{bonuses.length}} small-text">
         <ul>
             <li ng-repeat="bonus in bonuses" ng-click="selectBonus($index)" ng-class="{'selected': $index == selectedBonus}">
-                <span ng-if="bonus.percentReached < 100">{{ bonus.treshold | numberDotted : 0 }}</span>
-                <i ng-if="bonus.percentReached == 100" class="icon gog-icons-check"></i>
+                <span ng-if="!bonus.reached">{{ bonus.treshold | numberDotted : 0 }}</span>
+                <i ng-if="bonus.reached" class="icon gog-icons-check"></i>
             </li>
         </ul>
     </menu>
