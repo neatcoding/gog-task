@@ -3,6 +3,7 @@ var gogFilters = angular.module('gogFilters', []);
 /*-----------------------------------------
     My filter that is replacing commas
     with dots as thousands separator
+    [ extending number filter ]
 -----------------------------------------*/
 
 gogFilters.filter('numberDotted',

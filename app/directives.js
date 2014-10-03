@@ -17,7 +17,7 @@ gogDirectives.directive('gogPriceSlider', [function() {
         },
         link: function(scope, slider, attr) {
             /*-----------------------------------------
-                value declarations
+                Variable declarations
             -----------------------------------------*/
 
             // get start value from attribute (could get it from scope of course)
@@ -33,7 +33,7 @@ gogDirectives.directive('gogPriceSlider', [function() {
 
 
             /*-----------------------------------------
-                value declarations
+                Main
             -----------------------------------------*/
 
             /* init draggable element (bind drag) */
