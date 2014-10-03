@@ -30,6 +30,8 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
     // calculate game percent of slider values
     $scope.games.forEach(function(game){
         game.percentOfWhole = (game.price - $scope.minimumSliderValue)/($scope.maximumSliderValue-$scope.minimumSliderValue)*100;
+        // round to two decimal places
+        game.percentOfWhole = Math.round(game.percentOfWhole*100)/100;
     });
 
     // check if game prices are close
