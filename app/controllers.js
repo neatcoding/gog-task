@@ -49,7 +49,13 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
         var regexp = /^\d{0,}(\.\d{0,2}){0,1}$/;
         return {
             test: function(value) {
+                // check if value meets pattern
                 var testResult = regexp.test(value);
+                // if so, testResult depends on if it's higher or equal to minimal value
+                if( testResult ) {
+                    testResult = (parseFloat(value) >= $scope.minimumSliderValue);
+                }
+
                 setCheckoutEnabled(testResult);
                 return testResult;
             }
