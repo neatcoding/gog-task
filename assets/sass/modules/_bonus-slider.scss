@@ -1,0 +1,13 @@
+.bonus-slider {
+    margin: 1em 0;
+    position: relative;
+
+    .icon {
+        position: absolute;
+        top: 50%;
+        margin-top: -13px;
+    }
+
+    .gog-icons-arrow-left { left: -15%; }
+    .gog-icons-arrow-right { right: -15%; }
+}

@@ -97,7 +97,7 @@ gogControllers.controller('bonusesCtrl', ['$scope', 'Games', function ($scope, G
     // get data from Games service
     $scope.gamesSold = Games.getGamesSold();
     $scope.bonuses = Games.getBonuses();
-    $scope.selectedBonus = 0;
+    $scope.selectedBonus = 1;
 
     // we don't need lag smoothing, time should be mapped correctly
     TweenLite.lagSmoothing(0);
