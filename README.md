@@ -15,6 +15,8 @@ gog-price-slider directive is created to have customized slider with Draggable.
 
 You can try to click on the slider, click on games, or write price. Label is responsive to being close to each other in simple way.
 
+I didn't use ngAnimate, because there is no need for it in this project - but I really like it with GSAP JS. ( see http://greensock.com/ )
+
 
 <h2>Grunt</h2>
 
