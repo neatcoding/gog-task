@@ -24,7 +24,7 @@
     }
     // plus
     &:before {
-        @extend .gog-icons-plus;
+        @extend .gog-icon--plus;
         display: block;
         content: "";
         position: absolute;

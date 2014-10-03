@@ -11,7 +11,7 @@
         </p>
         <hr>
         <p ng-class="{'green': game.available}">
-            <i class="icon" ng-class="{'gog-icons-available': game.available, 'gog-icons-not-available': !game.available}"></i>
+            <i class="gog-icon" ng-class="{'gog-icon--available': game.available, 'gog-icon--not-available': !game.available}"></i>
             {{ game.supportDescription }} <strong ng-if="game.price > 1">(from {{ game.price | currency }})</strong>
         </p>
     </figure>
@@ -39,7 +39,7 @@
                 <a ng-class="{'button--inactive': !checkoutEnabled}" class="button button--green" ng-href="{{checkoutHref}}">Checkout now</a>
 
                 <p class="additional-info small-text light-grey">
-                    <i class="icon gog-icons-info"></i> Click the price to type it in manually
+                    <i class="gog-icon gog-icon--info"></i> Click the price to type it in manually
                 </p>
             </div>
         </div>

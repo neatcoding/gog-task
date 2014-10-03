@@ -6,6 +6,6 @@
 node_modules
 *.all.min.js
 
-gog-icons-*.png
+gog-icon--*.png
 
 Guardfile

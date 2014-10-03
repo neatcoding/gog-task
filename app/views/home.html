@@ -2,19 +2,19 @@
 
 <ul class="ico-horizontal-list dark-grey font-light">
     <li>
-        <i class="icon gog-icons-heart"></i>
+        <i class="gog-icon gog-icon--heart"></i>
         Support Larian Studios
     </li>
     <li>
-        <i class="icon gog-icons-mouse"></i>
+        <i class="gog-icon gog-icon--mouse"></i>
         Play Divinity 2&#58; DC before release
     </li>
     <li>
-        <i class="icon gog-icons-unlock"></i>
+        <i class="gog-icon gog-icon--unlock"></i>
         Get DRM&ndash;free games with goodies
     </li>
     <li class="rounded-delicate-glass">
-        <i class="icon gog-icons-alarm-clock"></i>
+        <i class="gog-icon gog-icon--alarm-clock"></i>
         Only <timer countdown="86035" interval="1000"><strong>{{hhours}}&#58;{{mminutes}}&#58;{{sseconds}}</strong></timer> left
     </li>
 </ul>
@@ -26,50 +26,39 @@
 
     <ul>
         <li class="column column--1-of-3 column--vertical-padding">
-            <div class="icon-wrapper">
-                <i class="icon gog-icons-music"></i>
-            </div>
+            <div class="gog-icon-wrapper"><i class="gog-icon gog-icon--music"></i></div>
             <p class="higher-line"><strong>4 soundtracks</strong></p>
             <p>Over 3&nbsp;hours of award winning music from all&nbsp;3&nbsp;games.</p>
         </li><!--
      --><li class="column column--1-of-3 column--vertical-padding">
-            <div class="icon-wrapper">
-                <i class="icon gog-icons-book"></i>
-            </div>
+            <div class="gog-icon-wrapper"><i class="gog-icon gog-icon--book"></i></div>
             <p class="higher-line"><strong>2 short stories</strong></p>
             <p>Prequel story for Divine Divinity and Beyond Divinity novella.</p>
         </li><!--
      --><li class="column column--1-of-3 column--vertical-padding">
-            <div class="icon-wrapper">
-                <i class="icon gog-icons-journal"></i>
-            </div>
+            <div class="gog-icon-wrapper"><i class="gog-icon gog-icon--journal"></i></div>
             <p class="higher-line"><strong>Divinity 2 &ndash; Dev Journal</strong></p>
             <p>144 pages long book, detailing story and art of&nbsp;Divinity 2.</p>
         </li><!--
      --><li class="column column--1-of-3 column--vertical-padding">
-            <div class="icon-wrapper">
-                <i class="icon gog-icons-movie"></i>
-            </div>
+            <div class="gog-icon-wrapper"><i class="gog-icon gog-icon--movie"></i></div>
             <p class="higher-line"><strong>Making of Divinity 2</strong></p>
             <p>40 minutes long, profesional documentary about the development of&nbsp;Divinity 2.</p>
         </li><!--
      --><li class="column column--1-of-3 column--vertical-padding">
-            <div class="icon-wrapper">
-                <i class="icon gog-icons-mac"></i>
-            </div>
+            <div class="gog-icon-wrapper"><i class="gog-icon gog-icon--mac"></i></div>
             <p class="higher-line"><strong>7 wallpapers</strong></p>
             <p>Beatifull, hand crafted HD&nbsp;wallpepers with Divine, Beyond and Divinity 2 art.</p>
         </li><!--
      --><li class="column column--1-of-3 column--vertical-padding">
-            <div class="icon-wrapper">
-                <i class="icon gog-icons-zip-file"></i>
-            </div>
+            <div class="gog-icon-wrapper"><i class="gog-icon gog-icon--zip-file"></i></div>
             <p class="higher-line"><strong>...and more</strong></p>
             <p>3&nbsp;manuals, 56&nbsp;artworks, 5&nbsp;avatars, Beyond Divinity game-guide.</p>
         </li>
     </ul>
 </section><!--
 --><section class="column column--1-of-3" ng-controller="bonusesCtrl">
+
     <h3 class="line-decorated">Games sold so far</h3>
 
     <div>
@@ -89,7 +78,7 @@
     </div>
 
     <div class="bonus-slider noselect">
-        <i class="icon gog-icons-arrow-left pointer" ng-click="selectBonus(selectedBonus-1)"></i>
+        <i class="gog-icon gog-icon--arrow-left pointer" ng-click="selectBonus(selectedBonus-1)"></i>
 
         <figure class="polaroid-image" ng-class="{'polaroid-image--dimmed': !bonuses[selectedBonus].reached}">
             <img src="" ng-src="{{bonuses[selectedBonus].image}}" alt="bonuses[selectedBonus].description">
@@ -97,20 +86,18 @@
             <div class="useful-circle" ng-class="{'active': bonuses[selectedBonus].reached}">
                 <span ng-if="!bonuses[selectedBonus].reached">{{ bonuses[selectedBonus].percentReached }}%</span>
                 <span ng-if="bonuses[selectedBonus].reached" class="play-triangle"></span>
-
                 <progress-arc class="progress" size="79" stroke="#e0e0e0" stroke-width="7" complete="bonuses[selectedBonus].percentReached / 100"></progress-arc>
             </div>
         </figure>
 
-
-        <i class="icon gog-icons-arrow-right pointer" ng-click="selectBonus(selectedBonus+1)"></i>
+        <i class="gog-icon gog-icon--arrow-right pointer" ng-click="selectBonus(selectedBonus+1)"></i>
     </div>
 
     <menu class="select-menu select-menu--of-{{bonuses.length}} small-text">
         <ul>
             <li ng-repeat="bonus in bonuses" ng-click="selectBonus($index)" ng-class="{'selected': $index == selectedBonus}">
                 <span ng-if="!bonus.reached">{{ bonus.treshold | numberDotted : 0 }}</span>
-                <i ng-if="bonus.reached" class="icon gog-icons-check"></i>
+                <i ng-if="bonus.reached" class="gog-icon gog-icon--check"></i>
             </li>
         </ul>
     </menu>

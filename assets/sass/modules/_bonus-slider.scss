@@ -2,12 +2,12 @@
     margin: 1em 0;
     position: relative;
 
-    .icon {
+    .gog-icon {
         position: absolute;
         top: 50%;
         margin-top: -13px;
     }
 
-    .gog-icons-arrow-left { left: -15%; }
-    .gog-icons-arrow-right { right: -15%; }
+    .gog-icon--arrow-left { left: -15%; }
+    .gog-icon--arrow-right { right: -15%; }
 }
