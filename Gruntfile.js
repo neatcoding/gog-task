@@ -66,9 +66,9 @@ module.exports = function(grunt) {
     uglify: {
       gog: {
         options: {
-          preserveComments: 'some'
-          // could be done by grunt-environment (dev and prod)
-          ,compress: false,
+          preserveComments: 'some',
+          // could be changed by grunt-environment (dev)
+          compress: false,
           mangle: false
         },
         files: {
