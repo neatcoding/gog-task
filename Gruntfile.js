@@ -68,10 +68,10 @@ module.exports = function(grunt) {
     uglify: {
       gog: {
         options: {
-          preserveComments: 'some',
+          preserveComments: 'some'//,
           // could be changed by grunt-environment (dev)
-          compress: false,
-          mangle: false
+          // compress: false,
+          // mangle: false
         },
         files: {
           'assets/js/script.all.min.js': uglifyFiles
