@@ -33,19 +33,19 @@
         },{
             "treshold": 25000,
             "description": "exclusive, never before seen, trailer from Divinity: Original Sin",
-            "image": "http://placekitten.com/246/132?image=1"
+            "image": "assets/img/bonuses-thumbnails/thumb2.jpg"
         },{
             "treshold": 50000,
             "description": "video detailing newer features and fixes in Developer’s Cut of Divinity 2",
-            "image": "http://placekitten.com/246/132?image=2"
+            "image": "assets/img/bonuses-thumbnails/thumb3.jpg"
         },{
             "treshold": 80000,
             "description": "video detailing newest features and fixes in Developer’s Cut of Divinity 2",
-            "image": "http://placekitten.com/246/132?image=6"
+            "image": "assets/img/bonuses-thumbnails/thumb4.jpg"
         },{
             "treshold": 120000,
             "description": "video detailing coming features and fixes in Developer’s Cut of Divinity 2",
-            "image": "http://placekitten.com/246/132?image=8"
+            "image": "assets/img/bonuses-thumbnails/thumb5.jpg"
         }
     ],
     "gamesSold": 22576
