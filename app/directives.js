@@ -1,10 +1,12 @@
+var gogDirectives = angular.module('gogDirectives', []);
+
 /*-----------------------------------------
     Directive created to use Draggable
     and have customized slider just
     as I want it to be. :)
 -----------------------------------------*/
 
-gogApp.directive('gogPriceSlider', [function() {
+gogDirectives.directive('gogPriceSlider', [function() {
     return {
         restrict: "E",
         scope: {

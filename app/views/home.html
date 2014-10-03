@@ -74,7 +74,7 @@
 
     <div>
         <div class="counter">
-            <span ng-class="{'digit inner-bevel inner-bevel--field': gamesSoldDigits[i]!='.', 'dot-hole': gamesSoldDigits[i]=='.'}" ng-repeat="i in [0,1,2,3,4,5,6]">{{gamesSoldDigits[i]}}</span>
+            <span ng-class="{'digit inner-bevel inner-bevel--field': gamesSoldDigits[i]!='.', 'digit--one': gamesSoldDigits[i]=='1', 'dot': gamesSoldDigits[i]=='.'}" ng-repeat="i in [0,1,2,3,4,5,6]"><span>{{gamesSoldDigits[i]}}</span></span>
         </div>
 
         <p ng-if="!bonuses[selectedBonus].reached">
@@ -82,8 +82,8 @@
             ...to unlock {{ bonuses[selectedBonus].description }}.
         </p>
         <p ng-if="bonuses[selectedBonus].reached">
-            <strong>You reached {{ bonuses[selectedBonus].treshold | numberDotted : 0 }}...</strong><br>
-            ...and unlocked {{ bonuses[selectedBonus].description }}.
+            <strong>You reached {{ bonuses[selectedBonus].treshold | numberDotted : 0 }}!</strong><br>
+            See {{ bonuses[selectedBonus].description }}.
         </p>
 
     </div>
@@ -94,11 +94,11 @@
         <figure class="polaroid-image" ng-class="{'polaroid-image--dimmed': !bonuses[selectedBonus].reached}">
             <img src="" ng-src="{{bonuses[selectedBonus].image}}" alt="bonuses[selectedBonus].description">
 
-            <div class="progress" ng-if="!bonuses[selectedBonus].reached">
-                {{ bonuses[selectedBonus].percentReached }}%
-            </div>
-            <div class="play" ng-if="bonuses[selectedBonus].reached">
-                play
+            <div class="useful-circle" ng-class="{'active': bonuses[selectedBonus].reached}">
+                <span ng-if="!bonuses[selectedBonus].reached">{{ bonuses[selectedBonus].percentReached }}%</span>
+                <span ng-if="bonuses[selectedBonus].reached" class="play-triangle"></span>
+
+                <progress-arc class="progress" size="79" stroke="#e0e0e0" stroke-width="7" complete="bonuses[selectedBonus].percentReached / 100"></progress-arc>
             </div>
         </figure>
 

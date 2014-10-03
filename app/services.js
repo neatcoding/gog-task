@@ -1,9 +1,11 @@
+var gogServices = angular.module('gogServices', []);
+
 /*-----------------------------------------
     Games service gets data from JSON, promise them
     and provides interface to retrieve them
 -----------------------------------------*/
 
-gogApp.service('Games', ['$http', function ($http) {
+gogServices.service('Games', ['$http', function ($http) {
     var gamesData;
 
     // get data from json file and promise it

@@ -43,3 +43,13 @@ input.clean-input {
 }
 
 .pointer { cursor: pointer; }
+
+.play-triangle {
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 17px 0 17px 31px;
+    border-color: transparent transparent transparent #e0e0e0;
+    @include rotate(360deg);
+}

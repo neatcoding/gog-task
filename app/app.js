@@ -1,8 +1,12 @@
 /* App Module */
 var gogApp = angular.module('gogApp', [
         'ngRoute',
+        'ngResource',
         'gogControllers',
-        'ngResource'
+        'gogDirectives',
+        'gogFilters',
+        'gogServices',
+        'angular-progress-arc'
     ]).run(function () {
 });
 

@@ -1,0 +1,36 @@
+.useful-circle {
+    @include absolute-centered;
+    width: 83px;
+    height: 83px;
+    background: rgba(black, 0.5);
+    @include border-radius(50%);
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 83px;
+    color: #e0e0e0;
+    z-index: 1;
+
+    &.active {
+        cursor: pointer;
+
+        &:hover {
+            .play-triangle {
+                @include transform( translate(4px, 0px) scale(0.8) );
+            }
+        }
+    }
+
+    .progress {
+        position: absolute;
+        left: 2px; top: 2px;
+        pointer-events: none; // because it renders too large
+
+        circle {
+            @include transition(stroke-dashoffset 0.1s linear);
+        }
+    }
+    .play-triangle {
+        @include absolute-centered;
+        @include transform( translate(4px, 0px) );
+    }
+}

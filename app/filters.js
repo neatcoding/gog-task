@@ -1,9 +1,11 @@
+var gogFilters = angular.module('gogFilters', []);
+
 /*-----------------------------------------
     My filter that is replacing commas
     with dots as thousands separator
 -----------------------------------------*/
 
-gogApp.filter('numberDotted',
+gogFilters.filter('numberDotted',
     [ '$filter', function(filter) {
         var numberFilter = filter('number');
         return function(amount, fractionSize) {

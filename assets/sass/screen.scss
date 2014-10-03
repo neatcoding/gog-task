@@ -52,10 +52,8 @@
 // main sections of the layout
 // --------------------------------------------------
 
-@import "layout/page"; // whole page styles
+@import "layout/page";
 @import "layout/header";
-// @import "layout/content";
-// @import "layout/footer";
 
 
 // --------------------------------------------------
@@ -71,3 +69,4 @@
 @import "modules/bonus-slider";
 @import "modules/polaroid-image";
 @import "modules/select-menu";
+@import "modules/useful-circle";
