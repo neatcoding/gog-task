@@ -21,37 +21,80 @@
 
 <section class="game-box outer-bevel game-box--containing-{{games.length}}" ng-include="'app/partials/game-box.html'"></section>
 
-<div class="column column-2-of-3">
+<section class="column column--2-of-3">
     <h3 class="line-decorated">Goodies available for free with Divinity Bundle</h3>
 
-    <i class="icon gog-icons-music"></i>
-    <i class="icon gog-icons-book"></i>
-    <i class="icon gog-icons-journal"></i>
-    <i class="icon gog-icons-movie"></i>
-    <i class="icon gog-icons-mac"></i>
-    <i class="icon gog-icons-zip-file"></i>
-</div><!--
---><div class="column column-1-of-3">
+    <ul>
+        <li class="column column--1-of-3 column--vertical-padding">
+            <div class="icon-wrapper">
+                <i class="icon gog-icons-music"></i>
+            </div>
+            <p class="higher-line"><strong>4 soundtracks</strong></p>
+            <p>Over 3&nbsp;hours of award winning music from all&nbsp;3&nbsp;games.</p>
+        </li><!--
+     --><li class="column column--1-of-3 column--vertical-padding">
+            <div class="icon-wrapper">
+                <i class="icon gog-icons-book"></i>
+            </div>
+            <p class="higher-line"><strong>2 short stories</strong></p>
+            <p>Prequel story for Divine Divinity and Beyond Divinity novella.</p>
+        </li><!--
+     --><li class="column column--1-of-3 column--vertical-padding">
+            <div class="icon-wrapper">
+                <i class="icon gog-icons-journal"></i>
+            </div>
+            <p class="higher-line"><strong>Divinity 2 &ndash; Dev Journal</strong></p>
+            <p>144 pages long book, detailing story and art of&nbsp;Divinity 2.</p>
+        </li><!--
+     --><li class="column column--1-of-3 column--vertical-padding">
+            <div class="icon-wrapper">
+                <i class="icon gog-icons-movie"></i>
+            </div>
+            <p class="higher-line"><strong>Making of Divinity 2</strong></p>
+            <p>40 minutes long, profesional documentary about the development of&nbsp;Divinity 2.</p>
+        </li><!--
+     --><li class="column column--1-of-3 column--vertical-padding">
+            <div class="icon-wrapper">
+                <i class="icon gog-icons-mac"></i>
+            </div>
+            <p class="higher-line"><strong>7 wallpapers</strong></p>
+            <p>Beatifull, hand crafted HD&nbsp;wallpepers with Divine, Beyond and Divinity 2 art.</p>
+        </li><!--
+     --><li class="column column--1-of-3 column--vertical-padding">
+            <div class="icon-wrapper">
+                <i class="icon gog-icons-zip-file"></i>
+            </div>
+            <p class="higher-line"><strong>...and more</strong></p>
+            <p>3&nbsp;manuals, 56&nbsp;artworks, 5&nbsp;avatars, Beyond Divinity game-guide.</p>
+        </li>
+    </ul>
+</section><!--
+--><section class="column column--1-of-3" ng-controller="bonusesCtrl">
     <h3 class="line-decorated">Games sold so far</h3>
 
-    <div ng-controller="gamesSoldCtrl">
+    <div>
         <div class="counter">
-            <span class="digit">{{gamesSoldDigits.0}}</span>
-            <span class="digit">{{gamesSoldDigits.1}}</span>
-            <span class="digit">{{gamesSoldDigits.2}}</span>
-            <span class="digit">{{gamesSoldDigits.3}}</span>
-            <span class="digit">{{gamesSoldDigits.4}}</span>
-            <span class="digit">{{gamesSoldDigits.5}}</span>
-            <span class="digit">{{gamesSoldDigits.6}}</span>
+            <span ng-class="{'digit inner-bevel inner-bevel--field': gamesSoldDigits[i]!='.', 'dot-hole': gamesSoldDigits[i]=='.'}" ng-repeat="i in [0,1,2,3,4,5,6]">{{gamesSoldDigits[i]}}</span>
         </div>
 
-        <iframe ng-if="trailerAvailable" width="100%" ng-src="//www.youtube.com/embed/Mea7Pa3rhJU" frameborder="0" allowfullscreen></iframe>
+        <p>
+            <strong>Reach {{ bonuses[selectedBonus].treshold | numberDotted : 0 }}...</strong><br>
+            ...to unlock {{ bonuses[selectedBonus].description }}.
+        </p>
+    </div>
+
+    <div class="bonus-slider noselect">
+        <i class="icon gog-icons-arrow-left" ng-click="selectBonus(selectedBonus-1)"></i>
+
+        {{ bonuses[selectedBonus].percentReached }}%
+
+        <i class="icon gog-icons-arrow-right" ng-click="selectBonus(selectedBonus+1)"></i>
     </div>
 
     <i class="icon gog-icons-check"></i>
-    <i class="icon gog-icons-arrow-left"></i>
-    <i class="icon gog-icons-arrow-right"></i>
-</div>
+
+
+</section>
 
 
 

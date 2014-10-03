@@ -1,9 +1,31 @@
 .counter {
     font-family: $dsDigital;
-    font-size: 30px;
+
+    .digit, .dot-hole {
+        vertical-align: bottom;
+        display: inline-block;
+        margin-left: 2px;
+    }
 
     .digit {
-        display: inline-block;
-        width: 10px;
+        font-size: 40px;
+        height: 40px;
+        line-height: 40px;
+        width: 30px;
+        @include box-sizing(border-box);
+        vertical-align: top;
+        color: #fff;
+        text-shadow: 0px 1px 0px rgba(black, 0.35);
+        margin-left: 2px;
+        &:first-child { margin-left: 0; }
+    }
+
+    .dot-hole {
+        text-shadow: 0px 1px 0px rgba(white, 0.6);
+        font-size: 30px;
+        color: lighten($lightGrey, 5%);
+        line-height: 40px;
+        position: relative;
+        top: 11px;
     }
 }

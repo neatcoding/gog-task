@@ -1,10 +1,15 @@
 var gogControllers = angular.module('gogControllers', []);
 
 /*-----------------------------------------
-    home page controller
+    Home page controller
 -----------------------------------------*/
 
 gogControllers.controller('homePageCtrl', ['$scope', function ($scope) {}]);
+
+
+/*-----------------------------------------
+    Controller for game box
+-----------------------------------------*/
 
 gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, Games) {
     // get data from Games service
@@ -83,17 +88,24 @@ gogControllers.controller('gameBoxCtrl', ['$scope', 'Games', function ($scope, G
 }]);
 
 
-gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope, Games) {
+/*-----------------------------------------
+    Controller for achieved bonuses
+    and sold games
+-----------------------------------------*/
+
+gogControllers.controller('bonusesCtrl', ['$scope', 'Games', function ($scope, Games) {
     // get data from Games service
     $scope.gamesSold = Games.getGamesSold();
-    $scope.trailerAvailable = false;
-    $scope.gamesSoldRequiredForTrailer = Games.getGamesSoldRequiredForTrailer();
+    $scope.bonuses = Games.getBonuses();
+    $scope.selectedBonus = 0;
 
-    // animate gamesSold $scope object property imitating real time updates
-    TweenLite.to($scope, 60, {
-        gamesSold: '+=20000',
+    // we don't need lag smoothing, time should be mapped correctly
+    TweenLite.lagSmoothing(0);
+    // tween gamesSold $scope object property imitating real time updates
+    TweenLite.to($scope, 30, {
+        gamesSold: '+=100000',
         roundProps: 'gamesSold', // games are whole numbers, not floats
-        ease: Power1.easeInOut,
+        ease: Power2.easeInOut,
         // digest scope every frame of animation to react on gamesSold change
         onUpdate: function(){ $scope.$digest(); }
     });
@@ -103,20 +115,39 @@ gogControllers.controller('gamesSoldCtrl', ['$scope', 'Games', function ($scope,
         // process gamesSold to digits to show them
         $scope.gamesSoldDigits = numberWithDots($scope.gamesSold);
 
-        // check if trailer is available
-        if($scope.gamesSold > $scope.gamesSoldRequiredForTrailer) {
-            $scope.trailerAvailable = true;
-        } else {
-            $scope.trailerAvailable = false;
-        }
+        // check progress of each bonuses (0-100%)
+        $scope.bonuses.forEach(function(bonus) {
+            bonus.percentReached = $scope.gamesSold / bonus.treshold * 100;
+            bonus.percentReached = Math.round($scope.gamesSold / bonus.treshold * 100);
+            if(bonus.percentReached > 100) {
+                bonus.percentReached = 100;
+            }
+        });
     });
+
+    $scope.selectBonus = function(n) {
+        // keep n in bonus range
+        if(n < 0) {
+            n = $scope.bonuses.length-1;
+        } else if(n > $scope.bonuses.length-1) {
+            n = 0;
+        }
+
+        $scope.selectedBonus = n;
+    };
+
 
     // helper to format number in thousands separated with dots style
     function numberWithDots(x) {
         x = x.toString();
         var pattern = /(-?\d+)(\d{3})/;
-        while (pattern.test(x))
+        while (pattern.test(x)) {
             x = x.replace(pattern, "$1.$2");
+        }
+        if(x.length < 7) {
+            x = "0" + x;
+        }
+
         return x;
     }
 }]);

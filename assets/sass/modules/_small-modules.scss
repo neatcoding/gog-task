@@ -14,6 +14,12 @@
     background: #c2c2c2;
     @include background-image(linear-gradient(#c2c2c2, #cfcfcf));
 }
+.inner-bevel--field {
+    border: none;
+    @include box-shadow(0px 1px 0px rgba(white, 0.75), 0px 0px 0px 1px rgba(black, 0.25) inset);
+    @include background-image(linear-gradient(#a6a6a6, #bfbfbf));
+    @include border-radius(3px);
+}
 
 input.clean-input {
     background: none;
@@ -26,3 +32,12 @@ input.clean-input {
 }
 
 .ng-invalid-pattern { color: #D21919; }
+
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

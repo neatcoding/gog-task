@@ -23,6 +23,8 @@ p {
 }
 .small-text { font-size: 10px; }
 
+.higher-line { line-height: 2.5em; vertical-align: bottom; }
+
 // strong means semi-bold for designer
 strong { font-weight: 600; }
 
@@ -38,10 +40,10 @@ strong { font-weight: 600; }
 .centered { text-align: center; }
 
 // font colors
-.dark-grey { color: $dark-grey; }
-.light-grey { color: $light-grey; }
-.green { color: $grass-green; }
-.light-green { color: $grass-green-lighter; }
+.dark-grey { color: $darkGrey; }
+.light-grey { color: $lightGrey; }
+.green { color: $grassGreen; }
+.light-green { color: $grassGreenLighter; }
 
 // reset separator styles
 hr {
@@ -61,6 +63,7 @@ hr {
 .line-decorated {
     text-align: center;
     position: relative;
+    margin-bottom: 1em;
     &:before, &:after {
         content: ""; display: block;
         top: 50%;
