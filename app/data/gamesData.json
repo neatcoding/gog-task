@@ -1,29 +1,52 @@
 {
     "games": [
-            {
-                "name": "Divine Divinity",
-                "slug": "divine-divinity",
-                "price": 0.99,
-                "priceDescription": "normal price $5.99",
-                "supportDescription": "Below average",
-                "description": "with 6 goodies and 4 language versions"
-            }, {
-                "name": "Beyond Divinity",
-                "slug": "beyond-divinity",
-                "price": 7.67,
-                "priceDescription": "normal price $5.99",
-                "supportDescription": "Above average",
-                "sliderText": "Average",
-                "description": "with 6 goodies and 4 language versions"
-            }, {
-                "name": "Divinity 2",
-                "slug": "divinity-2",
-                "price": 18.31,
-                "priceDescription": "preorder, normal price $19.99",
-                "supportDescription": "Top supporter",
-                "sliderText": "Top 10%",
-                "description": "with 9 goodies and 7 language versions"
-            }
-        ],
+        {
+            "name": "Divine Divinity",
+            "slug": "divine-divinity",
+            "price": 0.99,
+            "priceDescription": "normal price $5.99",
+            "supportDescription": "Below average",
+            "description": "with 6 goodies and 4 language versions"
+        },{
+            "name": "Beyond Divinity",
+            "slug": "beyond-divinity",
+            "price": 7.67,
+            "priceDescription": "normal price $5.99",
+            "supportDescription": "Above average",
+            "sliderText": "Average",
+            "description": "with 6 goodies and 4 language versions"
+        },{
+            "name": "Divinity 2",
+            "slug": "divinity-2",
+            "price": 18.31,
+            "priceDescription": "preorder, normal price $19.99",
+            "supportDescription": "Top supporter",
+            "sliderText": "Top 10%",
+            "description": "with 9 goodies and 7 language versions"
+        }
+    ],
+    "bonuses": [
+        {
+            "treshold": 10000,
+            "description": "video detailing new features and fixes in Developer’s Cut of Divinity 2",
+            "image": "assets/img/bonuses-thumbnails/thumb1.jpg"
+        },{
+            "treshold": 25000,
+            "description": "exclusive, never before seen, trailer from Divinity: Original Sin",
+            "image": "http://placekitten.com/246/132?image=1"
+        },{
+            "treshold": 50000,
+            "description": "video detailing newer features and fixes in Developer’s Cut of Divinity 2",
+            "image": "http://placekitten.com/246/132?image=2"
+        },{
+            "treshold": 80000,
+            "description": "video detailing newest features and fixes in Developer’s Cut of Divinity 2",
+            "image": "http://placekitten.com/246/132?image=5"
+        },{
+            "treshold": 120000,
+            "description": "video detailing coming features and fixes in Developer’s Cut of Divinity 2",
+            "image": "http://placekitten.com/246/132?image=6"
+        }
+    ],
     "gamesSold": 22576
 }
