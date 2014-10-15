@@ -1,4 +1,3 @@
-written by: Jan Nowotny
 <h1>GOG Task - Divinity Bundle</h1>
 
 demo: http://neatcoding.com/gog-task/
